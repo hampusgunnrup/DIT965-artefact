@@ -7,22 +7,28 @@
     ----------------------------------------------------------------- 
 
 
-Hi there! Welcome to Cloud9 IDE!
+## About
+This is a game artefact, or rather a prototype, that is made for the investigation of how to teach OOP to children(ages 6-12).
+The proposed game will be a collection of studied phenomena and already known theories about children's learning and game design.
+Previous work that has inspired this research is Scratch, Alice and GreenFoot.
 
-To get you started, we have created a small hello world application.
+This project is build in the cloud9 online workspace, hence the logo and support for it.
 
-1) Open the hello-world.php file
 
-2) Follow the run instructions in the file's comments
+## Instructions
 
-3) If you want to look at the Apache logs, check out ~/lib/apache2/log
+1) Create a blank workspace(c9.io)
 
-And that's all there is to it! Just have fun. Go ahead and edit the code, 
-or add new files. It's all up to you! 
+2) clone the repository: git clone https://github.com/soggan/DIT965-artefact.git
 
-Happy coding!
-The Cloud9 IDE team
+3) Open the index.php file
 
+4) Press run button
+
+5) In the console there will be a link to the webpage. Click it!
+
+6) If you want to look at the Apache logs, check out ~/lib/apache2/log
+ 
 
 ## Support & Documentation
 
