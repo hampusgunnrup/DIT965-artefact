@@ -6,6 +6,7 @@ class Game {
         this.width = canvas.getWidth();
         this.height = canvas.getHeight();
         this.graphics = new Graphics(canvas, this.width, this.height);
+        this.input = new Input(canvas.getHtmlCanvas());
     }
     
     /* Getters */
@@ -23,6 +24,14 @@ class Game {
     
     getHeight() {
         return this.height;
+    }
+    
+    getTouchEvents() {
+        return this.input.getTouchEvents();
+    }
+    
+    isTouchDown() {
+        return this.input.isTouchDown();
     }
     
     

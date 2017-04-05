@@ -37,4 +37,9 @@ class MainCharacter extends Actor {
         
         super.update(deltaTime, maxX, maxY); // This has to be called in the end, otherwise the hat "falls behind"
     }
+    
+    onClick() {
+        super.onClick();
+        console.log("Clicked Main Character");
+    }
 }

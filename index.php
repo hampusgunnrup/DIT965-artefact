@@ -9,10 +9,11 @@
         <!-- The core classes/files. They build a type of framework for the game. -->
         <script type="text/javascript" src="js/core/graphics/Graphics.js"></script>
         <script type="text/javascript" src="js/core/graphics/Canvas.js"></script>
-        <script type="text/javascript" src="js/core/Game.js"></script>
-        <script type="text/javascript" src="js/core/screen/Screen.js"></script>
+        <script type="text/javascript" src="js/core/input/Input.js"></script>
         <script type="text/javascript" src="js/core/object/Object.js"></script>
         <script type="text/javascript" src="js/core/object/Actor.js"></script>
+        <script type="text/javascript" src="js/core/screen/Screen.js"></script>
+        <script type="text/javascript" src="js/core/Game.js"></script>
         
         <!-- Specific classes/files for this particular game. They use the core files. -->
         <script type="text/javascript" src="js/GameScreen.js"></script>

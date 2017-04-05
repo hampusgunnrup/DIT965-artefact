@@ -26,6 +26,17 @@ class Screen {
         /* Update all of the objects that are contained in the screen */
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].update(deltaTime, this.game.getWidth(), this.game.getHeight());
+           
+            /* Check the touch events*/
+            var touchEvents = this.game.getTouchEvents();
+            for(var n = 0; n < touchEvents.length; n++) {
+                if(
+                    touchEvents[n].x >= this.objects[i].getX() && touchEvents[n].x <= this.objects[i].getX() + this.objects[i].getWidth() &&
+                    touchEvents[n].y >= this.objects[i].getY() && touchEvents[n].y <= this.objects[i].getY() + this.objects[i].getHeight()
+                ) {
+                    this.objects[i].onClick();
+                }
+            }
         }
     }
     

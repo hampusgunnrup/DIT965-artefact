@@ -23,6 +23,10 @@ class Canvas {
         return this.htmlCanvas.getContext("2d");
     }
     
+    getHtmlCanvas() {
+        return this.htmlCanvas;
+    }
+    
     getWidth() {
         return this.width;
     }
