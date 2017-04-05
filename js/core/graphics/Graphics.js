@@ -1,5 +1,9 @@
 'use strict'
 
+/*
+ * A class for handling the low level graphics.
+ * It contains functions for clearing the screen, drawing a background and drawing an image/element.
+*/
 class Graphics {
     constructor(canvas, width, height) {
         this.canvas = canvas;
@@ -8,15 +12,15 @@ class Graphics {
         this.height = height;
     }
     
-    drawBackground(image) {
-        this.context.drawImage(image, 0, 0, this.width, this.height);
-    }
-    
     clearScreen() {
         this.context.clearRect(0,0,this.width,this.height);
     }
     
-    drawElement(x,y,width,height,image) {
+    drawBackground(image) {
+        this.context.drawImage(image, 0, 0, this.width, this.height);
+    }
+    
+    drawElement(x, y, width, height, image) {
         this.context.drawImage(image, x, y, width, height);
     }
 }
