@@ -16,7 +16,7 @@ class MainCharacter extends Actor {
     
     update(deltaTime, maxX, maxY) {
         /* Test of movement for the character */
-        this.x += this.dirx * deltaTime;
+        /*this.x += this.dirx * deltaTime;
         this.y += this.diry * deltaTime;
         
         if(this.x < 0) {
@@ -33,7 +33,7 @@ class MainCharacter extends Actor {
         
         if(this.y + this.height > maxY) {
             this.diry = -Math.abs(this.diry);
-        }
+        }*/
         
         super.update(deltaTime, maxX, maxY); // This has to be called in the end, otherwise the hat "falls behind"
     }
@@ -41,5 +41,6 @@ class MainCharacter extends Actor {
     onClick() {
         super.onClick();
         console.log("Clicked Main Character");
+        this.walkRight(10);
     }
 }

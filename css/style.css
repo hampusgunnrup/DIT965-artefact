@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+/*----------------------------------------------------------------------------- 
+[client] Screen Stylesheet 
+
+version:   1.0 
+date:      01/01/01 
+author:    [your email] 
+email:     [you at domain dot com] 
+website:   [your domain] 
+version history: [location of file] 
+
+----------------------------------------------------------------------------- */
+/* @import url("typography.css"); */
+
+/* Remove default styling */ 
+html { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+}
+
+/* Floating */
+.clear 
+    { 
+    clear:both; 
+} 
+
+.right 
+    { 
+    float: right; 
+} 
+
+.left 
+    { 
+    float: left; 
+}
+
+/* To remove highlighting on the canvas for iOS */
+canvas {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        outline: none;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}
