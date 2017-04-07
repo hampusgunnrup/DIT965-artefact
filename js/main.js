@@ -2,6 +2,11 @@
 
 window.onload = function() {                                   // When all of the document(including scripts) have been loaded
     var htmlCanvas = document.getElementById("platform");      // Get the canvas(area to draw on)
+    htmlCanvas.width = window.innerWidth;
+    htmlCanvas.height = window.innerHeight;
+
+    console.log(document.body.clientHeight);
+   
     var canvas = new Canvas(htmlCanvas);                       // Create a new instance for handling the canvas            
     
     var game = new Game(canvas);                               // Create a new Game instance
