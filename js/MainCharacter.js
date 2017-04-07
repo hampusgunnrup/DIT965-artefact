@@ -10,8 +10,15 @@ class MainCharacter extends Actor {
         var object1 = new Image();
         object1.src = "img/Hat-green.png";
         var cap = new Cap(this);
-        cap.setImage(object1);
+        cap.setBackground(object1);
         this.addObject(cap);
+                
+        this.propertiesWindow = new Properties(this);
+        this.propertiesWindowVisible = false;
+        
+        this.addProperty("Name", "Hampus");
+        this.addProperty("Age", "99");
+        this.addProperty("isHungry", "true");
     }
     
     update(deltaTime, maxX, maxY) {
@@ -40,7 +47,13 @@ class MainCharacter extends Actor {
     
     onClick() {
         super.onClick();
-        console.log("Clicked Main Character");
-        this.walkRight(10);
+        
+        if(!this.propertiesWindowVisible) { // If the propertieswindow is not visible and the user clicks on the character
+            this.addObject(this.propertiesWindow);
+        } else {
+            this.removeObject(this.propertiesWindow);
+        }
+        
+        this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
 }

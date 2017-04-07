@@ -19,6 +19,7 @@ class Object {
         this.width = width;
         this.height = height;
         this.objects = new Array();
+        this.properties = new Map();
     }
     
     /*
@@ -72,8 +73,8 @@ class Object {
         return this.height;
     }
     
-    getImage() {
-        return this.image;
+    getBackground() {
+        return this.background;
     }
     
     getObjects() {
@@ -83,17 +84,52 @@ class Object {
     
     /* Setters */
     /*
-     * param image: expects a javascript image(new Image()) with the src attached
+     * The background for the object can be an image or simply a color.
+     * Every Screen class will automatically draw the background of all the objects that are added.
+     * If the background is not specified, it will not be drawn.
+     * param image: expects a javascript image(new Image()) with the src attached or a hexadecimal colorcode.
     */
-    setImage(image) {
-        this.image = image;
+    setBackground(background) {
+        this.background = background;
     }
     
     /*
-     * param property: must be of type Object. 
-     * note: Optionally, assure that the property contains a function with the signature update(deltaTime, maxX, maxY)
+     * param object: must be of type Object. 
+     * note: Optionally, assure that the object contains a function with the signature update(deltaTime, maxX, maxY)
     */
     addObject(object) {
         this.objects.push(object);
+    }
+    
+    /*
+     * param property: must be a string of characters
+     * param value: must be a string of characters
+    */
+    addProperty(property, value) {
+        this.properties.set(property, value);
+    }
+    
+    /*
+     * param property: must be a string of characters
+    */
+    removeProperty(property) {
+        this.properties.delete(property);
+    }
+    
+    /*
+     * param object: must be of type Object or an integer number(index).
+    */
+    removeObject(remove) {
+        var index = -1;
+        
+        if(remove instanceof Object) {
+            index = this.objects.indexOf(remove); // Find the index of the object
+        } else {                                  // If it is an integer number
+            index = remove;
+        }
+        
+        if(index >= 0) {
+            this.objects.splice(index, 1);
+        }
     }
 }

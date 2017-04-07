@@ -53,10 +53,10 @@ class Screen {
             var current = this.objects[i];
             var currentO = current.getObjects();                                                                                                            // The current object's objects
             
-            this.graphics.drawElement(current.getX(), current.getY(), current.getWidth(), current.getHeight(), current.getImage());                         // Draw the object  
+            this.graphics.drawElement(current.getX(), current.getY(), current.getWidth(), current.getHeight(), current.getBackground());                         // Draw the object  
             
             for(var n = 0; n < currentO.length; n++) {
-                this.graphics.drawElement(currentO[n].getX(), currentO[n].getY(), currentO[n].getWidth(), currentO[n].getHeight(), currentO[n].getImage()); // Draw the object's object(s)
+                this.graphics.drawElement(currentO[n].getX(), currentO[n].getY(), currentO[n].getWidth(), currentO[n].getHeight(), currentO[n].getBackground()); // Draw the object's object(s)
             }
         }
     }
