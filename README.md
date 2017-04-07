@@ -21,9 +21,7 @@ This project is build in the cloud9 online workspace, hence the logo and support
 
 2) clone the repository: git clone https://github.com/soggan/DIT965-artefact.git
 
-3) Open the index.php file
-
-4) Press run button
+3) Press run button
 
 5) In the console there will be a link to the webpage. Click it!
 
