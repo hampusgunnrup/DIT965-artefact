@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
  * A class for handling the low level graphics.
@@ -32,18 +32,20 @@ class Graphics {
     }
     
     drawRoundedSquare(x, y, width, height, color) {
+        var curve = 20;
+        
         this.context.beginPath();
-        this.context.moveTo(20, 10);
-        this.context.lineTo(80, 10);
-        this.context.quadraticCurveTo(90, 10, 90, 20);
-        this.context.lineTo(90, 80);
-        this.context.quadraticCurveTo(90, 90, 80, 90);
-        this.context.lineTo(20, 90);
-        this.context.quadraticCurveTo(10, 90, 10, 80);
-        this.context.lineTo(10, 20);
-        this.context.quadraticCurveTo(10, 10, 20, 10);
-        this.context.strokeStyle = color;
-        this.context.stroke();
+        this.context.moveTo(x, y);                                                 // Start
+        this.context.lineTo(x+width-curve, y);                                     // Move right
+        this.context.quadraticCurveTo(x+width, y, x+width, y+curve);               // Curve down
+        this.context.lineTo(x+width, y+height-curve);                              // Move down
+        this.context.quadraticCurveTo(x+width, y+height, x+width-curve, y+height); // Curve left             
+        this.context.lineTo(x+curve, y+height);                                    // Move left
+        this.context.quadraticCurveTo(x, y+height, x, y+height-curve);             // Curve up
+        this.context.lineTo(x, y+curve);                                           // Move up
+        this.context.quadraticCurveTo(x, y, x+curve, y);                           // Curve right
+        this.context.fillStyle = color;
+        this.context.fill();
     }
     
     drawText(x, y, size, text, color) {
@@ -83,5 +85,37 @@ class Graphics {
     
     drawParagraph(x, y, text) {
         this.drawText(x, y, 1, text, "#222");
+    }
+    
+    drawSpeachBubble(x, y, width, height, color) {
+        var curve = 20;
+        var pointSize = 15;
+        
+        this.setBlur("#ADD8E6");
+        
+        this.context.beginPath();
+        this.context.moveTo(x+curve, y);                                                 // Start
+        this.context.lineTo(x+width-curve, y);                                     // Move right
+        this.context.quadraticCurveTo(x+width, y, x+width, y+curve);               // Curve down
+        this.context.lineTo(x+width, y+height-curve);                              // Move down
+        this.context.quadraticCurveTo(x+width, y+height, x+width-curve, y+height); // Curve left
+        
+        this.context.lineTo(x+curve+curve, y+height);
+        this.context.lineTo(x+curve, y+height+pointSize);
+        
+        this.context.lineTo(x+curve, y+height);                                    // Move left
+        this.context.quadraticCurveTo(x, y+height, x, y+height-curve);             // Curve up
+        this.context.lineTo(x, y+curve);                                           // Move up
+        this.context.quadraticCurveTo(x, y, x+curve, y);                           // Curve right
+        this.context.fillStyle = color;
+        this.context.strokeStyle = "#000";
+        this.context.lineWidth = "2";
+        this.context.fill();
+        this.context.stroke();
+    }
+    
+    setBlur(color) {
+        this.context.shadowBlur = 70;
+        this.context.shadowColor = color;
     }
 }

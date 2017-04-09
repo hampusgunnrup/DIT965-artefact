@@ -23,12 +23,12 @@ class Screen {
      * param deltaTime: the time that has passed between the last call and the current call.
     */
     update(deltaTime) {
+        var touchEvents = this.game.getTouchEvents();
         /* Update all of the objects that are contained in the screen */
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].update(deltaTime, this.game.getWidth(), this.game.getHeight());
            
             /* Check the touch events*/
-            var touchEvents = this.game.getTouchEvents();
             for(var n = 0; n < touchEvents.length; n++) {
                 if(
                     touchEvents[n].x >= this.objects[i].getX() && touchEvents[n].x <= this.objects[i].getX() + this.objects[i].getWidth() &&

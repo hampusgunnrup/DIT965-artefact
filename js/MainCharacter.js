@@ -1,4 +1,4 @@
-'use static'
+'use static';
 
 class MainCharacter extends Actor {
     constructor(x, y, width, height) {
@@ -13,12 +13,20 @@ class MainCharacter extends Actor {
         cap.setBackground(object1);
         this.addObject(cap);
                 
-        this.propertiesWindow = new Properties(this);
+        this.propertiesWindow = new PropertiesWindow(this);
         this.propertiesWindowVisible = false;
+        //this.addObject(this.propertiesWindow);
         
         this.addProperty("Name", "Hampus");
         this.addProperty("Age", "99");
         this.addProperty("isHungry", "true");
+        
+        this.stateEnum = {
+            WAITING : "WAITING",
+            SPEAKING : "SPEAKING"
+        }
+        
+        this.state = this.stateEnum.WAITING;
     }
     
     update(deltaTime, maxX, maxY) {
