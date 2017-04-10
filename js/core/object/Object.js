@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* 
  * An Object is something that has a width and a height. 

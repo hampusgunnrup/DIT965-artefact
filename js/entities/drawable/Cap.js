@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 class Cap extends Object {
     constructor(actor) {

@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* 
  * The screen class is a base class for more specific screen classes.

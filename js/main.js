@@ -1,4 +1,4 @@
-'use strict'                                                   // To disallow global variables
+'use strict';                                                  // To disallow global variables
 
 window.onload = function() {                                   // When all of the document(including scripts) have been loaded
     var htmlCanvas = document.getElementById("platform");      // Get the canvas(area to draw on)

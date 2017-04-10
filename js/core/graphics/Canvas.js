@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
  * This class represents and handles the html canvas, which is used as a drawing platform.

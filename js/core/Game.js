@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* This class acts as an intermediary in many cases. It represents the game as a whole.*/
 class Game {

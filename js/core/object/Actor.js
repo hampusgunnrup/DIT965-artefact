@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /* 
  * An Actor is an Object that can do something.

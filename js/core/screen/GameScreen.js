@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
  * Extends the Screen class by introducing a properties window for each object on the screen.
