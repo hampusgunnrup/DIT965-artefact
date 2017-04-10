@@ -87,14 +87,22 @@ class Graphics {
         this.drawText(x, y, 1, text, "#222");
     }
     
-    drawSpeachBubble(x, y, width, height, color) {
+    getParagraphSize(text) {
+        this.context.font = "1.2em Courier New";
+        var size = {
+            width: this.context.measureText(text).width, 
+            height: this.context.measureText("M").width + 2 // The closest you can get to height
+        };
+    
+        return size;    
+    }
+    
+    drawSpeachBubble(x, y, width, height, color, text) {
         var curve = 20;
         var pointSize = 15;
         
-        this.setBlur("#ADD8E6");
-        
         this.context.beginPath();
-        this.context.moveTo(x+curve, y);                                                 // Start
+        this.context.moveTo(x+curve, y);                                           // Start
         this.context.lineTo(x+width-curve, y);                                     // Move right
         this.context.quadraticCurveTo(x+width, y, x+width, y+curve);               // Curve down
         this.context.lineTo(x+width, y+height-curve);                              // Move down
@@ -112,10 +120,30 @@ class Graphics {
         this.context.lineWidth = "2";
         this.context.fill();
         this.context.stroke();
+        
+        /* Draw the text */
+        var words = text.split(" ");                      // Make an array of the text(each word)
+        var currentWidth = 0;
+        var spaceSize = this.getParagraphSize(" ").width;
+        var wordX = x + spaceSize*2;
+        var wordY = y + spaceSize + 5;
+
+        for(var n = 0; n < words.length; n++) {           // For all words
+            var word = words[n];
+            var wordSize =  this.getParagraphSize(word);
+            
+            if((wordX + wordSize.width) >= (x + width)) { // If the current sentence(i.e. sentences[i]) with the current word becomes to large
+                wordY += wordSize.height + 5;             // Start a new line
+                wordX = x + spaceSize*2;
+            }
+            
+            this.drawParagraph(wordX, wordY, word);
+            wordX += wordSize.width + spaceSize;
+        }
     }
     
     setBlur(color) {
-        this.context.shadowBlur = 70;
+        this.context.shadowBlur = 20;
         this.context.shadowColor = color;
     }
 }

@@ -22,6 +22,5 @@ class Actor extends Object {
     }
     
     speak(sentence) {
-        console.log(sentence);
     }
 }

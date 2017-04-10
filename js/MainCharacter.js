@@ -64,4 +64,8 @@ class MainCharacter extends Actor {
         
         this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
+    
+    speak(sentence) {
+        super.speak(sentence);
+    }
 }

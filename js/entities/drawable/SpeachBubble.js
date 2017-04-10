@@ -2,10 +2,11 @@
 
 class SpeachBubble extends Object {
     constructor(actor) {
-        var width = 200;
-        var height = 100
+        var width = 220;
+        var height = 200;
         super(0, 0, width, height);
         this.actor = actor;
+        this.text = "";
     }
     
     update(deltaTime, maxX, maxY) {

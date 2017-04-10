@@ -24,6 +24,8 @@ class ScenarioOneScreen extends GameScreen {
         this.objects.push(this.character);
         this.file = new FileIO("/assets/text.xml");
         this.file.open();
+        
+        this.graphics.setBlur("#000");
     }
     
     update(deltaTime) {
@@ -45,6 +47,6 @@ class ScenarioOneScreen extends GameScreen {
     
     display() {
         super.display();
-        this.graphics.drawSpeachBubble(this.speachBubble.x, this.speachBubble.y, this.speachBubble.width, this.speachBubble.height, "#FFF");
+        this.graphics.drawSpeachBubble(this.speachBubble.x, this.speachBubble.y, this.speachBubble.width, this.speachBubble.height, "#FFF", this.file.getUniqueNodeValue("firstText"));
     }
 }
