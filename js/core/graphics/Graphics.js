@@ -16,8 +16,13 @@ class Graphics {
         this.context.clearRect(0,0,this.width,this.height);
     }
     
-    drawBackground(image) {
-        this.context.drawImage(image, 0, 0, this.width, this.height);
+    drawBackground(background) {
+        if(background instanceof Image) {
+            this.context.drawImage(background, 0, 0, this.width, this.height);
+        } else {
+            this.context.fillStyle = background;
+            this.context.fillRect(0, 0, this.width, this.height);
+        }
     }
     
     drawElement(x, y, width, height, background) {
