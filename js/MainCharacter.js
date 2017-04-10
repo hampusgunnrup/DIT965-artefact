@@ -15,9 +15,12 @@ class MainCharacter extends Actor {
                 
         this.propertiesWindow = new PropertiesWindow(this);
         this.propertiesWindowVisible = false;
-        //this.addObject(this.propertiesWindow);
+        this.addObject(this.propertiesWindow);
         
-        this.addProperty("Name", "Hampus");
+        this.speachBubble = new SpeachBubble(this);
+        this.addObject(this.speachBubble);
+        
+        this.addProperty("Name", "Kim");
         this.addProperty("Age", "99");
         this.addProperty("isHungry", "true");
         
@@ -67,5 +70,6 @@ class MainCharacter extends Actor {
     
     speak(sentence) {
         super.speak(sentence);
+        this.speachBubble.setText(sentence);
     }
 }

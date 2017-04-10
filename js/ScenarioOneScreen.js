@@ -18,9 +18,6 @@ class ScenarioOneScreen extends GameScreen {
         this.character = new MainCharacter(x, y, 100, 250);
         this.character.setBackground(this.element1);
         
-        this.speachBubble = new SpeachBubble(this.character);
-        this.objects.push(this.speachBubble);
-        
         this.objects.push(this.character);
         this.file = new FileIO("/assets/text.xml");
         this.file.open();
@@ -47,6 +44,14 @@ class ScenarioOneScreen extends GameScreen {
     
     display() {
         super.display();
-        this.graphics.drawSpeachBubble(this.speachBubble.x, this.speachBubble.y, this.speachBubble.width, this.speachBubble.height, "#FFF", this.file.getUniqueNodeValue("firstText"));
+        
+        for(var i = 0; i < this.objects.length; i++) {
+            if(this.objects[i] instanceof Actor) {
+                var bubble = this.objects[i].speachBubble;
+                if(bubble.isVisible()) {
+                    this.graphics.drawSpeachBubble(bubble.x, bubble.y, bubble.width, bubble.height, "#FFF", bubble.getText());
+                }
+            }
+        }
     }
 }
