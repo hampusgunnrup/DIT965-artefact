@@ -64,4 +64,12 @@ class Screen {
             }
         }
     }
+    
+    /*
+     * param object: must be of type Object. 
+     * note: Optionally, assure that the object contains a function with the signature update(deltaTime, maxX, maxY)
+    */
+    addObject(object) {
+        this.objects.push(object);
+    }
 }

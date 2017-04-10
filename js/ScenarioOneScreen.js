@@ -45,6 +45,8 @@ class ScenarioOneScreen extends GameScreen {
     display() {
         super.display();
         
+        /* For every actor on the screen, draw their speach bubble(if it is visible). */
+        /* All actors should have a speach bubble */
         for(var i = 0; i < this.objects.length; i++) {
             if(this.objects[i] instanceof Actor) {
                 var bubble = this.objects[i].speachBubble;

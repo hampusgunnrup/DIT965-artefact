@@ -34,7 +34,7 @@ class MainCharacter extends Actor {
     
     update(deltaTime, maxX, maxY) {
         /* Test of movement for the character */
-        /*this.x += this.dirx * deltaTime;
+       /* this.x += this.dirx * deltaTime;
         this.y += this.diry * deltaTime;
         
         if(this.x < 0) {

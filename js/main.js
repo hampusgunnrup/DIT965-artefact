@@ -10,7 +10,7 @@ window.onload = function() {                                   // When all of th
     var canvas = new Canvas(htmlCanvas);                       // Create a new instance for handling the canvas            
     
     var game = new Game(canvas);                               // Create a new Game instance
-    var screen = new ScenarioOneScreen(game);                  // Create a new GameScreen instance
+    var screen = new MenuScreen(game);                  // Create a new GameScreen instance
     game.setScreen(screen);                                    // Set the initial screen
     
     var startTime = Date.now();                                // Get the initial start time
