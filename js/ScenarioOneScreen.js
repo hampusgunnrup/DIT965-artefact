@@ -7,26 +7,25 @@
 class ScenarioOneScreen extends GameScreen {
     constructor(game) {
         super(game);
-                
-        this.background.src = "img/boy-bedroom-1.png";                                                               // This image might be used for one of the scenarios in the game
+        
+       // var audio = new Audio("/assets/audio/Ida-voice.m4a"); 
+        // audio.play();
+        
+        this.background.src = "img/boy-bedroom-1.png";
         this.graphics.setBlur("#000");
 
         this.character = this.game.mainCharacter;
-        
         this.objects.push(this.character);
-        this.file = new FileIO("/assets/text.xml");
-        this.file.open();
     }
     
     update(deltaTime) {
-        
         this.character.state = this.character.stateEnum.SPEAKING;
         
         switch(this.character.state) {
             case this.character.stateEnum.WAITING:
                 break;
             case this.character.stateEnum.SPEAKING:
-                this.character.speak(this.file.getUniqueNodeValue("firstText"));
+                this.character.speak(this.game.getString("scenario1/text1"));
                 break;
             default:
                 break;

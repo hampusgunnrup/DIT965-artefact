@@ -4,16 +4,12 @@ class ScenarioTwoScreen extends GameScreen {
     constructor(game) {
         super(game);
         
+        this.graphics.setBlur("#000");
         this.background.src = "img/livingroom.png";
         
         this.character = this.game.mainCharacter;
         
         this.objects.push(this.character);
-        this.file = new FileIO("/assets/text.xml");
-        this.file.open(); 
-           
-        this.graphics.setBlur("#000");
-        
     }
     
     
@@ -24,7 +20,7 @@ class ScenarioTwoScreen extends GameScreen {
             case this.character.stateEnum.WAITING:
                 break;
             case this.character.stateEnum.SPEAKING:
-                this.character.speak(this.file.getUniqueNodeValue("secondText"));
+                this.character.speak(this.game.getString("scenario2/text1"));
                 break;
             default:
             break

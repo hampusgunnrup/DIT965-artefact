@@ -21,22 +21,6 @@ html, body {
     overflow: hidden;
 }
 
-/* Floating */
-.clear 
-    { 
-    clear:both; 
-} 
-
-.right 
-    { 
-    float: right; 
-} 
-
-.left 
-    { 
-    float: left; 
-}
-
 /* To remove highlighting on the canvas for iOS */
 canvas {
         -webkit-touch-callout: none;
@@ -47,4 +31,14 @@ canvas {
         user-select: none;
         outline: none;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}
+
+/* A wrapper for the taskbar. The taskbar is visible in every scenario */
+#taskWrapper {
+    background:rgba(207, 226, 243, 1);/*"#cfe2f3"*/;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

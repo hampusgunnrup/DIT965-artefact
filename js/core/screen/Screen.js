@@ -34,7 +34,7 @@ class Screen {
                     touchEvents[n].x >= this.objects[i].getX() && touchEvents[n].x <= this.objects[i].getX() + this.objects[i].getWidth() &&
                     touchEvents[n].y >= this.objects[i].getY() && touchEvents[n].y <= this.objects[i].getY() + this.objects[i].getHeight()
                 ) {
-                    this.objects[i].onClick();
+                    this.objects[i].onClick(touchEvents[n]);
                 }
             }
         }
