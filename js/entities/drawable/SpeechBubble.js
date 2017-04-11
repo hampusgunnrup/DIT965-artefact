@@ -1,6 +1,6 @@
 'use strict';
 
-class SpeachBubble extends Object {
+class SpeechBubble extends Object {
     constructor(actor) {
         var width = 220;
         var height = 200;

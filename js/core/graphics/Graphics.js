@@ -19,7 +19,7 @@ class Graphics {
     drawBackground(background) {
         if(background instanceof Image) {
             this.context.drawImage(background, 0, 0, this.width, this.height);
-        } else {
+        } else { // If the background is a color
             this.context.fillStyle = background;
             this.context.fillRect(0, 0, this.width, this.height);
         }
@@ -29,7 +29,7 @@ class Graphics {
         if(background != undefined) {
             if(background instanceof Image) {
                 this.context.drawImage(background, x, y, width, height);
-            } else {
+            } else { // If the background is a color
                 this.context.fillStyle = background;
                 this.context.fillRect(x, y, width, height);
             }
@@ -88,6 +88,16 @@ class Graphics {
         this.drawText(x, y, 1.2, text, "#000");
     }
     
+    getH2Size(text) {
+        this.context.font = "´1.2em Courier New";
+        var size = {
+            width: this.context.measureText(text).width, 
+            height: this.context.measureText("M").width + 2 // The closest you can get to height
+        };
+    
+        return size;    
+    }
+    
     drawParagraph(x, y, text) {
         this.drawText(x, y, 1, text, "#222");
     }
@@ -102,7 +112,7 @@ class Graphics {
         return size;    
     }
     
-    drawSpeachBubble(x, y, width, height, color, text) {
+    drawSpeechBubble(x, y, width, height, color, text) {
         var curve = 20;
         var pointSize = 15;
         
@@ -113,6 +123,7 @@ class Graphics {
         this.context.lineTo(x+width, y+height-curve);                              // Move down
         this.context.quadraticCurveTo(x+width, y+height, x+width-curve, y+height); // Curve left
         
+        /* Draw triangle part */
         this.context.lineTo(x+curve+curve, y+height);
         this.context.lineTo(x+curve, y+height+pointSize);
         
@@ -127,23 +138,23 @@ class Graphics {
         this.context.stroke();
         
         /* Draw the text */
-        var words = text.split(" ");                      // Make an array of the text(each word)
+        var words = text.split(" ");                                               // Make an array of the text(each word)
         var currentWidth = 0;
         var spaceSize = this.getParagraphSize(" ").width;
         var wordX = x + spaceSize*2;
         var wordY = y + spaceSize + 5;
 
-        for(var n = 0; n < words.length; n++) {           // For all words
+        for(var n = 0; n < words.length; n++) {                                    // For all words
             var word = words[n];
-            var wordSize =  this.getParagraphSize(word);
+            var wordSize = this.getParagraphSize(word);
             
-            if((wordX + wordSize.width) >= (x + width)) { // If the current sentence(i.e. sentences[i]) with the current word becomes to large
-                wordY += wordSize.height + 5;             // Start a new line
+            if((wordX + wordSize.width) >= (x + width)) {                          // If the current sentence(i.e. sentences[i]) with the current word becomes to large
+                wordY += wordSize.height + 5;                                      // Start a new line
                 wordX = x + spaceSize*2;
             }
             
-            this.drawParagraph(wordX, wordY, word);
-            wordX += wordSize.width + spaceSize;
+            this.drawParagraph(wordX, wordY, word);                                // Draw the actual word
+            wordX += wordSize.width + spaceSize;                                   // Set the x for the next word
         }
     }
     

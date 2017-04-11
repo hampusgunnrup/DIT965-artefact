@@ -1,8 +1,9 @@
 'use strict';
 
 /* 
- * An Object is something that has a width and a height. 
- * Additionally, it has an x and y value. 
+ * An Object is something that has a width, height, x value and y value. 
+ * There are getters for retrieving the values and an update method.
+ * Additionally, an object can contain other objects and a set of properties (in the form of a map).
 */
 class Object {
     /*
@@ -18,13 +19,20 @@ class Object {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.objects = new Array();
-        this.properties = new Map();
+        this.objects = new Array();  // Every object can "own" a set of objects. These gets updated by the object
+        this.properties = new Map(); // This should be {"property", "value"}. e.g. {"age", "100"}
+        this.propertiesWindow = new PropertiesWindow(this);
+        this.propertiesWindowVisible = false;
     }
     
     /*
      * This is similar to the update method in the Screen class.
-     * It expects to be updated regularly.
+     * It expects to be updated regularly. 
+     * It simply limits the object from going outside of the set bounds and updates every contained object within this object.
+     *
+     * param deltaTime: the time that has passed between the last call and the current call.
+     * param maxX: the highest x value that can be used.
+     * param maxY: the highest y value that can be used.
     */
     update(deltaTime, maxX, maxY) {
         if(this.x + this.width > maxX) {
@@ -47,12 +55,18 @@ class Object {
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].update(deltaTime, maxX, maxY);
         }
+        
+        if(this.propertiesWindowVisible)
+            this.propertiesWindow.update(deltaTime, maxX, maxY); // Update the properties windows coordinates
     }
     
     /*
      * Click handler. This gets called when the this a user clicks on this object.
+     * This is an empty template. Every object that wants to handle a click event, should override this method.
+     * There is no need to call the super function.
     */
     onClick() {
+        this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
     
     
@@ -94,6 +108,7 @@ class Object {
     }
     
     /*
+     * Add an object to this object.
      * param object: must be of type Object. 
      * note: Optionally, assure that the object contains a function with the signature update(deltaTime, maxX, maxY)
     */
@@ -102,21 +117,7 @@ class Object {
     }
     
     /*
-     * param property: must be a string of characters
-     * param value: must be a string of characters
-    */
-    addProperty(property, value) {
-        this.properties.set(property, value);
-    }
-    
-    /*
-     * param property: must be a string of characters
-    */
-    removeProperty(property) {
-        this.properties.delete(property);
-    }
-    
-    /*
+     * Removes the passed in object from the objects contained in this object.
      * param object: must be of type Object or an integer number(index).
     */
     removeObject(remove) {
@@ -131,5 +132,22 @@ class Object {
         if(index >= 0) {
             this.objects.splice(index, 1);
         }
+    }
+    
+    /*
+     * Add a property.
+     * param property: must be a string of characters
+     * param value: must be a string of characters
+    */
+    addProperty(property, value) {
+        this.properties.set(property, value);
+    }
+    
+    /*
+     * Removes the passed in property from this elements set of properties.
+     * param property: must be a string of characters
+    */
+    removeProperty(property) {
+        this.properties.delete(property);
     }
 }

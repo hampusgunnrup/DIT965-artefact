@@ -1,3 +1,4 @@
-<firstText>
-Hi! My name is Kim and I am going to teach you all about a programming technique called Object Oriented Programming!
-</firstText>
+<strings>
+    <firstText>Hi! My name is Kim and I am going to teach you all about a programming technique called Object Oriented Programming!</firstText>
+    <secondText>This is my family! My mother, father, sister and our little dog, Maxy.</secondText>
+</strings>

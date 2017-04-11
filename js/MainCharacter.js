@@ -12,13 +12,9 @@ class MainCharacter extends Actor {
         var cap = new Cap(this);
         cap.setBackground(object1);
         this.addObject(cap);
-                
-        this.propertiesWindow = new PropertiesWindow(this);
-        this.propertiesWindowVisible = false;
-        this.addObject(this.propertiesWindow);
         
-        this.speachBubble = new SpeachBubble(this);
-        this.addObject(this.speachBubble);
+        this.speechBubble = new SpeechBubble(this);
+        this.addObject(this.speechBubble);
         
         this.addProperty("Name", "Kim");
         this.addProperty("Age", "99");
@@ -58,18 +54,10 @@ class MainCharacter extends Actor {
     
     onClick() {
         super.onClick();
-        
-        if(!this.propertiesWindowVisible) { // If the propertieswindow is not visible and the user clicks on the character
-            this.addObject(this.propertiesWindow);
-        } else {
-            this.removeObject(this.propertiesWindow);
-        }
-        
-        this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
     
     speak(sentence) {
         super.speak(sentence);
-        this.speachBubble.setText(sentence);
+        this.speechBubble.setText(sentence);
     }
 }

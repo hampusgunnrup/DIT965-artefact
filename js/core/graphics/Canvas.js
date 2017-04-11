@@ -16,6 +16,7 @@ class Canvas {
     
     
     /* Getters */
+    
     /*
      * Returns the 2d context from the canvas(see CanvasRenderingContext2D). This can be used to draw methods.
     */
@@ -23,6 +24,9 @@ class Canvas {
         return this.htmlCanvas.getContext("2d");
     }
     
+    /*
+     * Returns the actual html canvas element.
+    */
     getHtmlCanvas() {
         return this.htmlCanvas;
     }
