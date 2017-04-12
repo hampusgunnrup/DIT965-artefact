@@ -9,7 +9,7 @@ class OOPGame extends Game {
         super(canvas);
         
         /* Main character initialization */
-        this.mainCharacter = new MainCharacter(20, this.height - 250 - 20, 150, 350);
+        this.mainCharacter = new MainCharacter(50, 700, 100, 250);
         var mainCharacterBackground = new Image();
         mainCharacterBackground.src = "img/young-boy.png"; // Change this image
         this.mainCharacter.setBackground(mainCharacterBackground);

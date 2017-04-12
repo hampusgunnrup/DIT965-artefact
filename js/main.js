@@ -4,6 +4,7 @@ window.onload = function() {                                   // When all of th
     var taskWrapper = document.getElementById("taskWrapper");
    
     var htmlCanvas = document.getElementById("platform");      // Get the canvas(area to draw on)
+    
     htmlCanvas.width = window.innerWidth - taskWrapper.offsetWidth;
     htmlCanvas.height = window.innerHeight;
     

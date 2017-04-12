@@ -10,7 +10,7 @@ class Actor extends Object {
      * param steps: the amount of points (x) to walk
     */
     walkLeft(steps) {
-        this.x -= steps;
+        this.x -= steps * this.scaleX;
     }
     
     /*
@@ -18,7 +18,7 @@ class Actor extends Object {
      * param steps: the amount of points (x) to walk
     */
     walkRight(steps) {
-        this.x += steps;
+        this.x += steps * this.scaleX;
     }
     
     /*
@@ -26,7 +26,7 @@ class Actor extends Object {
      * param steps: the amount of points (y) to walk
     */
     walkDown(steps) {
-        this.y += steps;
+        this.y += steps * this.scaleY;
     }
     
     /*
@@ -34,7 +34,7 @@ class Actor extends Object {
      * param steps: the amount of points (y) to walk
     */
     walkUp(steps) {
-        this.y -= steps;
+        this.y -= steps * this.scaleY;
     }
     
     /*

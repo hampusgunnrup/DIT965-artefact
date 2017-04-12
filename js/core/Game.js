@@ -3,10 +3,12 @@
 /* This class acts as an intermediary in many cases. It represents the game as a whole.*/
 class Game {
     constructor(canvas) {
-        this.width = canvas.getWidth();
-        this.height = canvas.getHeight();
-        this.graphics = new Graphics(canvas, this.width, this.height);
-        this.input = new Input(canvas.getHtmlCanvas());
+        /* The size is based on one of the computers used to test the game */
+        this.width = 1000;//canvas.getWidth();
+        this.height = 700;//canvas.getHeight();
+        this.graphics = new Graphics(canvas, canvas.getWidth(), canvas.getHeight());
+        
+        this.input = new Input(canvas.getHtmlCanvas(), this.scaleX, this.scaleY);
     }
     
     /* Getters */
