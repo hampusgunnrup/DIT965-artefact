@@ -42,3 +42,11 @@ canvas {
     right: 0;
     top: 0;
 }
+
+.task {
+    width: calc(100% - 10px);
+    height: 20%;
+    float: left;
+    margin: 5px;
+    background-color: white;
+}

@@ -11,20 +11,21 @@ class GameScreen extends Screen {
     display() {
         super.display();
 
-     /* Since every object on a Screen that is a GameScreen has a properties windows attached, 
+        /* Since every object on a Screen that is a GameScreen has a properties windows attached, 
         it is drawn for every object on the screen.
-     */
+        */
         for(var i = 0; i < this.objects.length; i++) {
             if(this.objects[i].propertiesWindowVisible) {
-                this.drawPropertiesWindow(this.objects[i].propertiesWindow, this.graphics);
+                this._drawPropertiesWindow(this.objects[i].propertiesWindow, this.graphics);
             }
         }
     }
     
     /*
      * Draws the passed in properties window using the passed in graphics instance.
+     * The underscore before the methodname depicts that it is supposed to be a private method(javascript doesn't have private members)
     */
-    drawPropertiesWindow(propertiesWindow, graphics) {
+    _drawPropertiesWindow(propertiesWindow, graphics) {
         graphics.drawRoundedSquare(propertiesWindow.x, propertiesWindow.y, propertiesWindow.width, propertiesWindow.height, "#ECE63D");
         
         var width = propertiesWindow.width;

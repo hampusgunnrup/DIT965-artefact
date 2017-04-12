@@ -9,9 +9,9 @@ class OOPGame extends Game {
         super(canvas);
         
         /* Main character initialization */
-        this.mainCharacter = new MainCharacter(20, this.height - 250 - 20, 100, 250);
+        this.mainCharacter = new MainCharacter(20, this.height - 250 - 20, 150, 350);
         var mainCharacterBackground = new Image();
-        mainCharacterBackground.src = "http://clipartix.com/wp-content/uploads/2016/05/Clip-art-stick-figure-clipart-image.jpeg"; // Change this image
+        mainCharacterBackground.src = "img/young-boy.png"; // Change this image
         this.mainCharacter.setBackground(mainCharacterBackground);
         
         /* Initialize a file with the textstrings for this game */

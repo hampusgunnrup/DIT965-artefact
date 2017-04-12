@@ -5,4 +5,7 @@
     <scenario2>
         <text1>This is my family! My mother, father, sister and our little dog, Maxy.</text1>
     </scenario2>
+    <scenario3>
+        <text1>Lets go inside the Zoo now.</text1>
+    </scenario3>
 </strings>

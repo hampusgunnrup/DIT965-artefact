@@ -10,7 +10,13 @@ class TaskWindow {
     }
     
     addTask(text) {
-        this.tasks.push(text);
+        /* Create the div and append it */
+        var div = document.createElement("div");
+        div.innerHTML = text;
+        this.wrapper.appendChild(div);
+        div.className = "task";
+        
+        this.tasks.push(div);
         this.index++;
         return this.index;
     }
