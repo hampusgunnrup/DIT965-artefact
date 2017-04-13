@@ -24,7 +24,6 @@ class Input {
             var touchY = (event.y - element.offsetTop) / scaleY;
             var touchEvent = {x: touchX, y:touchY};
             input.touchEventsBuffer.push(touchEvent);
-            console.log(touchX);
         }
     }
     
