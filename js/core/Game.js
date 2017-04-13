@@ -4,9 +4,12 @@
 class Game {
     constructor(canvas) {
         /* The size is based on one of the computers used to test the game */
-        this.width = 1000;//canvas.getWidth();
-        this.height = 700;//canvas.getHeight();
-        this.graphics = new Graphics(canvas, canvas.getWidth(), canvas.getHeight());
+        this.width = 1000;
+        this.height = 700;
+        this.scaleX = window.innerWidth / 1000;
+        this.scaleY = window.innerHeight / 700;
+        this.graphics = new Graphics(canvas, this.width, this.height);
+        this.graphics.setScale(this.scaleX, this.scaleY);
         
         this.input = new Input(canvas.getHtmlCanvas(), this.scaleX, this.scaleY);
     }

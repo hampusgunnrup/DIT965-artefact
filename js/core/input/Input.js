@@ -8,7 +8,7 @@ class Input {
     /*
      * param element: the element to detect input on. This should be an html element.
     */
-    constructor(element) {
+    constructor(element, scaleX, scaleY) {
         this.touchDown = false;
         this.touchEvents = new Array();
         this.touchEventsBuffer = new Array();
@@ -20,10 +20,11 @@ class Input {
         
         element.onmouseup = function(event) {
             input.touchDown = false;
-            var touchX = event.x - element.offsetLeft; // The passed in elements offset is removed since the x and y has its origin outside of the element
-            var touchY = event.y - element.offsetTop;
+            var touchX = (event.x - element.offsetLeft) / scaleX; // The passed in elements offset is removed since the x and y has its origin outside of the element
+            var touchY = (event.y - element.offsetTop) / scaleY;
             var touchEvent = {x: touchX, y:touchY};
             input.touchEventsBuffer.push(touchEvent);
+            console.log(touchX);
         }
     }
     

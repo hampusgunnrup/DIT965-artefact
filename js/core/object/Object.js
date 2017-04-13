@@ -15,13 +15,10 @@ class Object {
      * note: in html canvas, the coordinate systems y-axis goes downwards instead of upwards.
     */
     constructor(x, y, width, height) {
-        this.scaleX = 1000 / window.innerWidth;
-        this.scaleY = 700 / window.innerHeight;
-        
-        this.x = x / this.scaleX;
-        this.y = y / this.scaleY;
-        this.width = width / this.scaleX;
-        this.height = height / this.scaleY;
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
         this.objects = new Array();  // Every object can "own" a set of objects. These gets updated by the object
         this.properties = new Map(); // This should be {"property", "value"}. e.g. {"age", "100"}
         this.propertiesWindow = new PropertiesWindow(this);
@@ -37,10 +34,7 @@ class Object {
      * param maxX: the highest x value that can be used.
      * param maxY: the highest y value that can be used.
     */
-    update(deltaTime, maxx, maxy) {
-        var maxX = maxx / this.scaleX;
-        var maxY = maxy / this.scaleY;
-        
+    update(deltaTime, maxX, maxY) {
         if(this.x + this.width > maxX) {
             this.x = maxX - this.width;
         }
