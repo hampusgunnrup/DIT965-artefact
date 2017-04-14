@@ -23,6 +23,7 @@ class Object {
         this.properties = new Map(); // This should be {"property", "value"}. e.g. {"age", "100"}
         this.propertiesWindow = new PropertiesWindow(this);
         this.propertiesWindowVisible = false;
+        this.clickable = true;
     }
     
     /*
@@ -66,7 +67,8 @@ class Object {
      * There is no need to call the super function.
     */
     onClick() {
-        this.propertiesWindowVisible = !this.propertiesWindowVisible;
+        if(this.clickable)
+            this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
     
     
@@ -97,6 +99,26 @@ class Object {
     
     
     /* Setters */
+    setX(x) {
+        this.x = x;
+    }
+    
+    setY(y) {
+        this.y = y;
+    }
+    
+    setWidth(width) {
+        this.width = width;
+    }
+    
+    setHeight(height) {
+        this.height = height;
+    }
+    
+    setClickable(clickable) {
+        this.clickable = clickable;
+    }
+    
     /*
      * The background for the object can be an image or simply a color.
      * Every Screen class will automatically draw the background of all the objects that are added.

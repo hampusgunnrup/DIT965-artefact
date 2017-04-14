@@ -10,6 +10,8 @@ class Graphics {
         this.context = this.canvas.get2DContext();
         this.width = width;
         this.height = height;
+        this.scaleX = 1; // If no scale is set, then use this
+        this.scaleY = 1; // It has no effect on the sizes
     }
     
     clearScreen() {
@@ -75,7 +77,7 @@ class Graphics {
     }
 
     getH1Size(text) {
-        this.context.font = "2em Courier New";
+        this.context.font = "2em Courier New"; // Scale
         var size = {
             width: this.context.measureText(text).width, 
             height: this.context.measureText("M").width + 2 // The closest you can get to height
@@ -89,7 +91,7 @@ class Graphics {
     }
     
     getH2Size(text) {
-        this.context.font = "´1.2em Courier New";
+        this.context.font = "1.2em Courier New";
         var size = {
             width: this.context.measureText(text).width, 
             height: this.context.measureText("M").width + 2 // The closest you can get to height
@@ -161,5 +163,11 @@ class Graphics {
     setBlur(color) {
         this.context.shadowBlur = 20;
         this.context.shadowColor = color;
+    }
+    
+    setScale(scaleX, scaleY) {
+        this.scaleX = scaleX;
+        this.scaleY = scaleY;
+        this.context.scale(scaleX, scaleY);
     }
 }

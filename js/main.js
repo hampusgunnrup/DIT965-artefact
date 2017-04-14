@@ -9,11 +9,10 @@ window.onload = function() {                                   // When all of th
     htmlCanvas.height = window.innerHeight;
     
     var canvas = new Canvas(htmlCanvas);                       // Create a new instance for handling the canvas            
-    var taskWindow = new TaskWindow(window.innerWidth * 0.2, window.innerHeight, taskWrapper);
-    taskWindow.addTask("Test task");
-    taskWindow.addTask("Test task2");
     
-    var game = new OOPGame(canvas);                            // Create a new Game instance
+    var taskWindow = new TaskWindow(window.innerWidth * 0.2, window.innerHeight, taskWrapper, game); // Creates the task window
+    
+    var game = new OOPGame(canvas, taskWindow);                            // Create a new Game instance
     var screen = new MenuScreen(game);                         // Create a new GameScreen instance
     game.setScreen(screen);                                    // Set the initial screen
     
@@ -25,8 +24,6 @@ window.onload = function() {                                   // When all of th
 		    
 		    game.getCurrentScreen().update(Number(deltaTime)); // Update the currently selected screen
 		    game.getCurrentScreen().display();                 // Display the updated screen
-		    taskWindow.display();
-		    
 		},
 		30                                                     // Run the contents of the loop every 30 milliseconds
 	);

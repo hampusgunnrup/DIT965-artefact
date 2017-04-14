@@ -16,6 +16,14 @@ class SpeechBubble extends Object {
         this.y = this.actor.getY() - this.height - 20;
     }
     
+    hide() {
+        this.visible = false;
+    }
+    
+    show() {
+        this.visible = true;
+    }
+    
     isVisible() {
         return this.visible;
     }

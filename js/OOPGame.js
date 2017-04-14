@@ -5,14 +5,24 @@
  * It contains all of the functionality that the Game class has, but adds a few specific members and methods.
 */
 class OOPGame extends Game {
-    constructor(canvas) {
+    constructor(canvas, taskWindow) {
         super(canvas);
         
+        this.taskWindow = taskWindow;
+        
+        var image1 = new Image();
+        var image2 = new Image();
+        
         /* Main character initialization */
-        this.mainCharacter = new MainCharacter(50, 700, 100, 250);
-        var mainCharacterBackground = new Image();
-        mainCharacterBackground.src = "img/young-boy.png"; // Change this image
-        this.mainCharacter.setBackground(mainCharacterBackground);
+        this.mainCharacter = new MainCharacter(50, 700, 120, 200);
+        image1.src = "img/young-boy.svg";
+        this.mainCharacter.setBackground(image1);
+        
+        /* Arrow */
+        this.arrow = new Object(0, 0, 200, 100);
+        this.arrow.setClickable(false); // Quick fix
+        image2.src = "img/arrow.png";
+        this.arrow.setBackground(image2);
         
         /* Initialize a file with the textstrings for this game */
         this.file = new FileIO("/assets/text.xml");
@@ -31,24 +41,6 @@ class OOPGame extends Game {
     }
     
     getString(string) {
-        var finalString = "";
-        
-        if(this.file.xhttp.readyState == 4 && this.file.xhttp.status == 200 && this.file.xml != null && this.file.xml != undefined) {
-            var array = string.split("/");
-            var currentTag = this.file.xml.getElementsByTagName(array[0])[0];                 // Get the outermost tag
-            
-            for(var i = 1; i < array.length; i++) {                                            // For every string name
-                try {
-                    currentTag = currentTag.getElementsByTagName(array[i])[0];
-                } catch(e) {                                                                   // If getElementsByTagName does not find the passed in tag
-                    console.log("OOPGame.js getString(string) string not found at: " + string);
-                    return ""; 
-                }
-            }
-            
-            finalString = currentTag.childNodes[0].nodeValue;
-        }
-        
-        return finalString; //this.file.xml.getElementsByTagName("strings")[0].getElementsByTagName(string)[0].childNodes[0].nodeValue; 
+        return this.file.getString(string);
     }
 }
