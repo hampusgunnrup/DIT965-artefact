@@ -72,4 +72,22 @@ class Screen {
     addObject(object) {
         this.objects.push(object);
     }
+    
+        /*
+     * Removes the passed in object from the objects contained in this object.
+     * param object: must be of type Object or an integer number(index).
+    */
+    removeObject(remove) {
+        var index = -1;
+        
+        if(remove instanceof Object) {
+            index = this.objects.indexOf(remove); // Find the index of the object
+        } else {                                  // If it is an integer number
+            index = remove;
+        }
+        
+        if(index >= 0) {
+            this.objects.splice(index, 1);
+        }
+    }
 }
