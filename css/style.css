@@ -14,7 +14,9 @@ version history: [location of file]
 /* @import url("typography.css"); */
 
 /* Remove default styling */ 
-html, body { 
+html, body {
+    width: 100%;
+    height: 100%;
     margin: 0; 
     padding: 0; 
     border: 0;
@@ -42,6 +44,7 @@ canvas {
     right: 0;
     top: 0;
     text-align: center;
+    overflow-y: scroll;
 }
 
 #taskWrapper:empty:before {
@@ -76,11 +79,12 @@ canvas {
 .activeTask:hover {
     background-color: #CCC;
     cursor: pointer;
+    cursor: hand;
 }
 
 .doneTask {
-    background-image: url("/img/taskwindow/check.png");
     background-color: white;
+    background-image: url("/img/taskwindow/check.png");
     opacity: 1;
 }
 
@@ -98,4 +102,66 @@ canvas {
     height: 30%;
     display: none;
     float: right;
+}
+
+.continueButton {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 20%;
+    height: 20%;
+    background-color: rgb(51, 255, 154);
+    border-radius: 10px;
+    border: 1px solid black;
+    box-sizing: border-box; /* Border is included in size */
+    text-align: center;
+    font-size: 3em;
+    
+    font-family: 'Indie Flower';
+}
+
+.continueButton:hover {
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+
+.propertyChooserWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.propertyChooserFlex {
+    display: -webkit-box; /* For safari */
+    display: flex;
+    
+    -webkit-flex-flow: wrap; /* Safari and Chrome */
+    flex-flow: wrap; /* Firefox */
+    justify-content: space-around;
+}
+
+.propertyChooserFlex div {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    float: left;
+    background: no-repeat center center;
+    background-size: contain;
+    background-color: white;
+    cursor: pointer;
+    cursor: hand;
+}
+
+.propertyChooserFlex div:hover {
+    background-color: #CCC;
+}
+
+.propertyChooserFlex div:active {
+    background-color: rgba(100, 100, 100, 0.9);
 }

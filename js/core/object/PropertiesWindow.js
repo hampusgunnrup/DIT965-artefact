@@ -12,7 +12,7 @@ class PropertiesWindow {
     }
     
     update(deltaTime, maxX, maxY) {
-        this.x = this.actor.getX() + this.actor.getWidth();
+        this.x = this.actor.getX() + 20;
         this.y = this.actor.getY();
         
         if(this.x + this.width > maxX) {

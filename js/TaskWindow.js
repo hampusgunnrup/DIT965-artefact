@@ -1,8 +1,8 @@
 'use strict';
 
 class TaskWindow {
-    constructor(width, height, wrapper, game) {
-        this.game = game;
+    constructor(width, height, wrapper) {
+        this.func;
         this.wrapper = wrapper;
         this.width = width;
         this.height = height;
@@ -56,7 +56,9 @@ class TaskWindow {
     /*
      * Removes all of the tasks from the taskwindow
     */
-    reset() {
+    reset(func) {
+        this.func = func;
+        
         for(var i = 0; i < this.tasks.length; i++)
             this.wrapper.removeChild(this.tasks[i]);
     }
@@ -71,8 +73,19 @@ class TaskWindow {
             this.tasks[this.activeTaskIndex-1].classList.add("doneTask");
             if(this.activeTaskIndex < this.tasks.length) // Have to do this check again since the variable is incremented
                 this.tasks[this.activeTaskIndex].classList.add("activeTask");
-        } else {
-            // Add continue button
+        }  
+        
+        if(this.activeTaskIndex == this.tasks.length) {
+            console.log("yes");
+            var button = document.createElement("div");
+            button.className = "continueButton";
+            button.innerHTML = "Continue";
+            document.body.appendChild(button);
+
+            var taskWindow = this;
+            button.onmousedown = function() {
+                taskWindow.func();
+            };
         }
     }
     

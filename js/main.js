@@ -10,7 +10,7 @@ window.onload = function() {                                   // When all of th
     
     var canvas = new Canvas(htmlCanvas);                       // Create a new instance for handling the canvas            
     
-    var taskWindow = new TaskWindow(window.innerWidth * 0.2, window.innerHeight, taskWrapper, game); // Creates the task window
+    var taskWindow = new TaskWindow(window.innerWidth * 0.2, window.innerHeight, taskWrapper); // Creates the task window
     
     var game = new OOPGame(canvas, taskWindow);                            // Create a new Game instance
     var screen = new MenuScreen(game);                         // Create a new GameScreen instance

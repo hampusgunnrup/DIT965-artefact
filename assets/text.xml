@@ -2,10 +2,13 @@
     <scenario1>
         <task1>Introduction</task1>
         <task2>Properties</task2>
-        <task3>Choose cap</task3>
-        <text1>Wow! You finished your first task! Go ahead and click on the next task.</text1>
+        <task3>Hair color</task3>
+        <task4>T-shirt</task4>
+        <task5>Mood</task5>
+        <text1>Wow! You finished your first task! Go ahead and click on the next one.</text1>
     </scenario1>
     <scenario2>
+        <task1> Test task </task1>
         <text1>This is my family! My mother, father, sister and our little dog, Maxy.</text1>
     </scenario2>
     <scenario3>

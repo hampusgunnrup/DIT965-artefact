@@ -27,15 +27,26 @@ class Graphics {
         }
     }
     
-    drawElement(x, y, width, height, background) {
+    drawElement(x, y, width, height, background, rotation) {
+        this.context.save();
+        
+        // convert to radian 
+        var rad = rotation * Math.PI/180;
+        // change the origin to the center of the image
+        this.context.translate(x + width/2, y + height/2);
+        // rotate the canvas around the origin
+        this.context.rotate(rotation * Math.PI/180);
+        
         if(background != undefined) {
             if(background instanceof Image) {
-                this.context.drawImage(background, x, y, width, height);
+                this.context.drawImage(background, -(width/2), -(height/2), width, height); // Since the origin is changed to the elements position, the image can be drawn at (0,0)
             } else { // If the background is a color
                 this.context.fillStyle = background;
-                this.context.fillRect(x, y, width, height);
+                this.context.fillRect(-(width/2), -(height/2), width, height);
             }
         }
+        
+        this.context.restore();
     }
     
     drawRoundedSquare(x, y, width, height, color) {
@@ -161,7 +172,7 @@ class Graphics {
     }
     
     setBlur(color) {
-        this.context.shadowBlur = 20;
+        this.context.shadowBlur = 30;
         this.context.shadowColor = color;
     }
     

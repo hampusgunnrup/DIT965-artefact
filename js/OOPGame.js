@@ -14,7 +14,7 @@ class OOPGame extends Game {
         var image2 = new Image();
         
         /* Main character initialization */
-        this.mainCharacter = new MainCharacter(50, 700, 120, 200);
+        this.mainCharacter = new MainCharacter(50, 470, 120, 200);
         image1.src = "img/young-boy.svg";
         this.mainCharacter.setBackground(image1);
         

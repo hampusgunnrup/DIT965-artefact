@@ -23,7 +23,10 @@ class Object {
         this.properties = new Map(); // This should be {"property", "value"}. e.g. {"age", "100"}
         this.propertiesWindow = new PropertiesWindow(this);
         this.propertiesWindowVisible = false;
+        this.propertyClicked = -1;
         this.clickable = true;
+        this.rotation = 0;
+        this.shouldClick = true;
     }
     
     /*
@@ -97,6 +100,22 @@ class Object {
         return this.objects;
     }
     
+    isPropertiesWindowVisible() {
+        return this.propertiesWindowVisible;
+    }
+    
+    getRotation() {
+        return this.rotation;
+    }
+    
+    getProperties() {
+        return this.properties;
+    }
+    
+    getPropertyClicked() {
+        return this.propertyClicked;
+    }
+    
     
     /* Setters */
     setX(x) {
@@ -117,6 +136,14 @@ class Object {
     
     setClickable(clickable) {
         this.clickable = clickable;
+    }
+    
+    setRotation(rotation) {
+        this.rotation = rotation;
+    }
+    
+    setPropertyClicked(index) {
+        this.propertyClicked = index;
     }
     
     /*
@@ -171,5 +198,29 @@ class Object {
     */
     removeProperty(property) {
         this.properties.delete(property);
+    }
+    
+    changeProperty(property, value) {
+        this.properties[process] = value;
+    }
+    
+    hideProperties() {
+        if(this.clickable && this.propertiesWindowVisible)
+            this.propertiesWindowVisible = false;
+    }
+    
+    _isWithinPropertiesWindow(touchEvent, object) {
+        var x = object.getX() + object.getWidth();
+        var y = object.getY();
+        var width = 210;
+        var height = object.getHeight();
+         if( // If the touch event occurs within the properties window
+                touchEvent.x >= x && touchEvent.x <=x + width &&
+                touchEvent.y >= y && touchEvent.y <= y + height
+        ) {
+            return true;
+        }
+        
+        return false;
     }
 }
