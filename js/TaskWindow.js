@@ -34,7 +34,6 @@ class TaskWindow {
         div.onmousedown = function() {
             if(!taskWindow.isPlaying && div.classList.contains("activeTask")) {
                 taskWindow.isPlaying = true;
-                this.style.backgroundColor = "#FFF082";
                 speaker.style.display = "inline"
                 audio.play();
             }
@@ -67,14 +66,27 @@ class TaskWindow {
     */
     completeTask() {
         if(this.activeTaskIndex < this.tasks.length) {
-            this.tasks[this.activeTaskIndex].classList.remove("activeTask");
-            this.tasks[this.activeTaskIndex].classList.add("doneTask");
             this.activeTaskIndex++;
-            this.tasks[this.activeTaskIndex].classList.add("activeTask");
+            this.tasks[this.activeTaskIndex-1].classList.remove("activeTask");
+            this.tasks[this.activeTaskIndex-1].classList.add("doneTask");
+            if(this.activeTaskIndex < this.tasks.length) // Have to do this check again since the variable is incremented
+                this.tasks[this.activeTaskIndex].classList.add("activeTask");
+        } else {
+            // Add continue button
         }
     }
     
+    /*
+     * Returns true if the the active task is playing audio.
+    */
     isPlaying() {
         return this.isPlaying;
+    }
+    
+    /*
+     * Returns true if the passed in tasknumber is in the complete state.
+    */
+    isTaskDone(taskNumber) {
+        return this.activeTaskIndex >= taskNumber; // If it is equal to the tasknumber, it is the index after the tasknumber
     }
 }
