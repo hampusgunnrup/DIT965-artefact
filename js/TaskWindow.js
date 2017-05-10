@@ -10,9 +10,21 @@ class TaskWindow {
         this.index = -1;
         this.isPlaying = false;
         this.activeTaskIndex = 0;
+        
+        this.noTasks = document.createElement("span");
+        this.noTasks.innerHTML = "";
+        this.wrapper.appendChild(this.noTasks);
+        this.currentAudio = null;
+        
+        /* Initialize a file with the textstrings for this game */
+       // this.file = new FileIO("/assets/text.xml");
+        //this.file.open();
     }
     
     addTask(text, audio) {
+        if(this.noTasks.style.display !== "none")
+            this.noTasks.style.display = "none";
+        
         /* Create the html elements */
         var div = document.createElement("div");
         var span = document.createElement("span");
@@ -36,6 +48,7 @@ class TaskWindow {
                 taskWindow.isPlaying = true;
                 speaker.style.display = "inline"
                 audio.play();
+                taskWindow.currentAudio = audio;
             }
         }
         
@@ -44,7 +57,7 @@ class TaskWindow {
             taskWindow.isPlaying = false;
         }
         
-        if(taskWindow.wrapper.firstChild === div) { // Only the first task should be clickable
+        if(this.wrapper.getElementsByTagName('div')[0] === div) { // Only the first task should be clickable(initially)
             div.classList.add("activeTask");
         }
         
@@ -61,6 +74,13 @@ class TaskWindow {
         
         for(var i = 0; i < this.tasks.length; i++)
             this.wrapper.removeChild(this.tasks[i]);
+            
+        this.tasks = new Array();
+        this.activeTaskIndex = 0;
+        this.index = -1;
+        this.isPlaying = false;
+        
+        this.noTasks.style.display = "inline";
     }
     
     /*
@@ -76,17 +96,26 @@ class TaskWindow {
         }  
         
         if(this.activeTaskIndex == this.tasks.length) {
-            console.log("yes");
             var button = document.createElement("div");
             button.className = "continueButton";
-            button.innerHTML = "Continue";
+            button.innerHTML = this.file.getString("taskWindow/continue");
             document.body.appendChild(button);
 
             var taskWindow = this;
             button.onmousedown = function() {
-                taskWindow.func();
+                if(taskWindow.func !== undefined && taskWindow.func !== null)
+                    taskWindow.func();
+                this.remove();
             };
         }
+    }
+    
+    setEmptyText(text) {
+        this.noTasks.innerHTML = text;
+    }
+    
+    setFile(file) {
+        this.file = file;
     }
     
     /*
@@ -101,5 +130,9 @@ class TaskWindow {
     */
     isTaskDone(taskNumber) {
         return this.activeTaskIndex >= taskNumber; // If it is equal to the tasknumber, it is the index after the tasknumber
+    }
+    
+    getCurrentAudio() {
+        return this.currentAudio;
     }
 }

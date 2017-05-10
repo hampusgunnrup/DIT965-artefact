@@ -27,28 +27,18 @@ class Screen {
     update(deltaTime) {
         this.touchEvents = [];
         this.touchEvents = this.game.getTouchEvents();
-
        
         /* Update all of the objects that are contained in the screen */
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].update(deltaTime, this.game.getWidth(), this.game.getHeight());
         
-            /* Check the touch events*/
+            /* Check the touch events */
             for(var n = 0; n < this.touchEvents.length; n++) {
-                if(i == 0 && this.activeObject !== null && !this._isWithinPropertiesWindow(this.touchEvents[n], this.activeObject)) { // If the user clicks outside of the active properties window. i == 0 means that it should only do it once(i.e. not for every object)
-                    this.activeObject.hideProperties();
-                    this.activeObject = null;
-                }
-                
-        
                 if(
                     this.touchEvents[n].x >= this.objects[i].getX() && this.touchEvents[n].x <= this.objects[i].getX() + this.objects[i].getWidth() &&
                     this.touchEvents[n].y >= this.objects[i].getY() && this.touchEvents[n].y <= this.objects[i].getY() + this.objects[i].getHeight()
                 ) {
-                    if(this.activeObject === null) {
-                        this.objects[i].onClick(this.touchEvents[n]);
-                        this.activeObject = this.objects[i]; // The object that has been clicked
-                    }
+                    this.objects[i].onClick(this.touchEvents[n]);
                 }
             }
         }
@@ -96,29 +86,12 @@ class Screen {
         
         if(remove instanceof Object) {
             index = this.objects.indexOf(remove); // Find the index of the object
-        } else {                                  // If it is an integer number
+        } else if(remove === parseInt(remove) && remove < this.objects.length) { // If it is an integer number
             index = remove;
         }
         
         if(index >= 0) {
             this.objects.splice(index, 1);
         }
-    }
-    
-    _isWithinPropertiesWindow(touchEvent, object) {
-        if(object !== null && object !== undefined) {
-            var x = object.getX() + object.getWidth();
-            var y = object.getY();
-            var width = 210;
-            var height = object.getHeight();
-             if( // If the touch event occurs within the properties window
-                    touchEvent.x >= x && touchEvent.x <= x + width &&
-                    touchEvent.y >= y && touchEvent.y <= y + height
-            ) {
-                return true;
-            }
-        }
-        
-        return false;
     }
 }

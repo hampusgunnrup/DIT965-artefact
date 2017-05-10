@@ -2,8 +2,8 @@
 
 class SpeechBubble extends Object {
     constructor(actor) {
-        var width = 220;
-        var height = 200;
+        var width = 100;
+        var height = 100;
         super(0, 0, width, height);
         this.actor = actor;
         this.text = "";

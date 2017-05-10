@@ -1,0 +1,102 @@
+<strings>
+    <scenario1>
+        <task1>Introduktion</task1>
+        <task2>Egenskaper</task2>
+        <task3>Hårfärg</task3>
+        <task4>T-shirt</task4>
+        <task5>Humör</task5>
+        <hair>Hår</hair>
+        <tshirt>T-shirt</tshirt>
+        <mood>Humör</mood>
+    </scenario1>
+    <scenario2>
+        <task1> Min familj </task1>
+        <task2> Paraply </task2>
+        <task3> Zoo! </task3>
+        <humanClass>Människa</humanClass>
+        <umbrella>Paraply</umbrella>
+        <kimUmbrella>Litet</kimUmbrella>
+        <othersUmbrella>Stort</othersUmbrella>
+    </scenario2>
+    <scenario3>
+        <task1> Djur </task1>
+        <task2> Handlingar </task2>
+    </scenario3>
+    <taskWindow>
+        <finishTask>Vänligen avsluta den aktuella uppgiften.</finishTask>
+        <noTasks>Det finns inga tillgängliga uppgifter</noTasks>
+        <continue>Fortsätt</continue>
+    </taskWindow>
+    <common>
+        <begin>Starta!</begin>
+        <name>Namn</name>
+        <age>Ålder</age>
+        <color>Färg</color>
+        <material>Material</material>
+        <toyCar>Billeksak</toyCar>
+        <green>Grön </green>
+        <plastic>Plast</plastic>
+        <orange>Orange </orange>
+        <fabric>Tyg </fabric>
+        <teddyBear>Nallebjörn</teddyBear>
+        <wood>trä</wood>
+        <brown>Brun</brown>
+        <horsie>Häst</horsie>
+        <hairColor>Hårfärg</hairColor>
+        <mood>Humör</mood>
+        <job>Arbete</job>
+        <grandpa>Morfar</grandpa>
+        <grandpaAge>65</grandpaAge>
+        <white>Vit</white>
+        <surprised>Överraskad</surprised>
+        <teacher>Lärare</teacher>
+        <dad>Pappa</dad>
+        <dadAge>45</dadAge>
+        <sleepy>Sömnig</sleepy>
+        <police>Polis</police>
+        <umbrella>Paraply</umbrella>
+        <mom>Mamma</mom>
+        <momAge>41</momAge>
+        <red>Röd</red>
+        <happy>Glad</happy>
+        <chef>Kock</chef>
+        <leather>Läder</leather>
+        <confused>Förvirrad</confused>
+        <swim>Simma()</swim>
+        <skin>Hud</skin>
+        <crocodile>Krokodil</crocodile>
+        <bracket>()</bracket>
+        <empty> </empty>
+        <eatMeat>Ät-kött()</eatMeat>
+        <dots>:-:-:-:-:</dots>
+        <crawl>Krypa()</crawl>
+        <swing>Gunga-i-träd()</swing>
+        <eatBanana>Äter-banan()</eatBanana>
+        <shy>Blyg</shy>
+        <fur>Päls</fur>
+        <monkey>Apa</monkey>
+        <parrot>Papegoja</parrot>
+        <GR>Grön &amp; Röd</GR>
+        <feather>Fjäder</feather>
+        <scared>Rädd</scared>
+        <fly>Flyga()</fly>
+        <sing>Sjunga()</sing>
+        <tiger>Tiger</tiger>
+        <hungry>Hungrig</hungry>
+        <run>Springer()</run>
+        <wolf>Varg</wolf>
+        <gray>Grå</gray>
+        <bored>Uttråkad</bored>
+        <yowl>Yla()</yowl>
+        <owl>Uggla</owl>
+        <shocked>Chockad</shocked>
+        <hoo>Hoar()</hoo>
+        <brownAnimal>Brun</brownAnimal>
+        <properties>Egenskaper</properties>
+        <cap>Keps</cap>
+       <baseball>Baseboll</baseball> 
+       <yes>  Ja</yes>
+       <no>  Nej</no>
+       <isHungry>Är Hungrig</isHungry>
+    </common>
+</strings>

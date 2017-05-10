@@ -74,6 +74,7 @@ class Object {
             this.propertiesWindowVisible = !this.propertiesWindowVisible;
     }
     
+
     
     /* Getters */
     getX() {
@@ -114,6 +115,10 @@ class Object {
     
     getPropertyClicked() {
         return this.propertyClicked;
+    }
+    
+    getPropertiesWindow() {
+        return this.propertiesWindow;
     }
     
     
@@ -159,11 +164,13 @@ class Object {
     /*
      * Add an object to this object.
      * param object: must be of type Object. 
-     * note: Optionally, assure that the object contains a function with the signature update(deltaTime, maxX, maxY)
+     * note: Optionally, assure that the object contains a function w
+     ith the signature update(deltaTime, maxX, maxY)
     */
     addObject(object) {
         this.objects.push(object);
     }
+    
     
     /*
      * Removes the passed in object from the objects contained in this object.
@@ -191,6 +198,11 @@ class Object {
     addProperty(property, value) {
         this.properties.set(property, value);
     }
+    
+    
+    /*addFunction(method) {
+        this.properties.set(method); // This is bad practice. It should have key and value. Besides, why not just use the addProperty method?
+    }*/
     
     /*
      * Removes the passed in property from this elements set of properties.

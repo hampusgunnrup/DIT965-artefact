@@ -3,7 +3,7 @@
 class PropertiesWindow {
     constructor(actor) {
         var width = 210;
-        var height = actor.getHeight();
+        var height = 0;
         this.x = actor.getX() + actor.getWidth();
         this.y = actor.getY();
         this.width = width;
@@ -12,7 +12,7 @@ class PropertiesWindow {
     }
     
     update(deltaTime, maxX, maxY) {
-        this.x = this.actor.getX() + 20;
+        this.x = this.actor.getX() + this.actor.getWidth();
         this.y = this.actor.getY();
         
         if(this.x + this.width > maxX) {
@@ -48,5 +48,13 @@ class PropertiesWindow {
     
     getHeight() {
         return this.height;
+    }
+    
+    setWidth(width) {
+        this.width = width;
+    }
+    
+    setHeight(height) {
+        this.height = height;
     }
 }

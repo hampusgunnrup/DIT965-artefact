@@ -9,12 +9,48 @@ class ScenarioOneScreen extends GameScreen {
         super(game);
         
         this.background.src = "img/boy-bedroom-1.png";
-        this.graphics.setBlur("#000");
+        this.kimSpeaking = false;
 
+        /* Main character */
         this.character = this.game.mainCharacter;
         this.character.walkRight(40);
         this.objects.push(this.character);
         
+        this.character.addProperty(this.game.getString("common/name"), "Kim", []);
+        this.character.addProperty(this.game.getString("common/age"), "9", []);
+        
+        var choices = {
+            "1" : "/img/Kim/hair-black.png",
+            "2" : "/img/Kim/hair-blonde.png",
+            "3" : "/img/Kim/hair-blue.png",
+            "4" : "/img/Kim/hair-gray.png",
+            "5" : "/img/Kim/hair-normal.png",
+            "6" : "/img/Kim/hair-purple.png",
+            "7" : "/img/Kim/hair-red.png",
+        };
+        this.character.addProperty(this.game.getString("scenario1/hair"), "", choices);
+        
+        var choices2 = {
+            "1" : "/img/Kim/tshirt-blue.png",
+            "2" : "/img/Kim/tshirt-green.png",
+            "3" : "/img/Kim/tshirt-pink.png",
+            "4" : "/img/Kim/tshirt-red.png",
+            "5" : "/img/Kim/tshirt-yellow.png",
+        };
+        
+        this.character.addProperty(this.game.getString("scenario1/tshirt"), "", choices2);
+        
+        var choices3 = {
+            "1" : "/img/Kim/mouth-happy.png",
+            "2" : "/img/Kim/mouth-sad.png",
+            "3" : "/img/Kim/mouth-sad2.png",
+            "4" : "/img/Kim/mouth-surprised.png",
+            "5" : "/img/Kim/mouth-tired.png",
+        };
+        
+        this.character.addProperty(this.game.getString("scenario1/mood"), "", choices3);
+        
+        /* Class variables */
         this.states = {
             POINTINGONTASK : "POINTINGONTASK",
             PLAYINGTASK : "PLAYINGTASK",
@@ -23,18 +59,22 @@ class ScenarioOneScreen extends GameScreen {
             POINTINGATTOYS : "POINTINGATTOYS",
             POINTINGATPROPERTY : "POINTINGATPROPERTY",
             CHOOSINGPROPERTY : "CHOOSINGPROPERTY",
+            SCENARIODONE : "SCENARIODONE",
         };
         this.state = this.states.POINTINGONTASK;
         
         this.change = 5;
+        
+        /* Objects */
         var object1 = new Image();
         object1.src = "img/ToyCar.png";
         var toy = new Object(400, 480, 110, 130);
         toy.setBackground(object1);
         
-        toy.addProperty("Name", "Car toy");
-        toy.addProperty("Color", "Green");
-        toy.addProperty("material", "plastic");
+        
+        toy.addProperty(this.game.getString("common/name"), this.game.getString("common/toyCar"));
+        toy.addProperty(this.game.getString("common/color"), this.game.getString("common/green"));
+        toy.addProperty(this.game.getString("common/material"), this.game.getString("common/plastic"));
         this.addObject(toy);
         
         var object2 = new Image();
@@ -42,9 +82,9 @@ class ScenarioOneScreen extends GameScreen {
         var toy2 = new Object(290, 430, 90, 120);
         toy2.setBackground(object2);
         
-        toy2.addProperty("Name", "teddy bear");
-        toy2.addProperty("Color", "brown");
-        toy2.addProperty("Material", "fabric");
+         toy2.addProperty(this.game.getString("common/name"), this.game.getString("common/teddyBear"));
+         toy2.addProperty(this.game.getString("common/color"), this.game.getString("common/orange"));
+         toy2.addProperty(this.game.getString("common/material"), this.game.getString("common/fabric"));
         this.addObject(toy2); 
         
         var object3 = new Image();
@@ -52,34 +92,62 @@ class ScenarioOneScreen extends GameScreen {
         this.toy3 = new Object(600, 550, 120, 140);
         this.toy3.setBackground(object3);
         
-        this.toy3.addProperty("Name", "Horsie");
-        this.toy3.addProperty("Color", "brown");
-        this.toy3.addProperty("Material", "Plastic");
+        this.toy3.addProperty(this.game.getString("common/name"), this.game.getString("common/horsie"));
+        this.toy3.addProperty(this.game.getString("common/color"), this.game.getString("common/brownAnimal"));
+        this.toy3.addProperty(this.game.getString("common/material"), this.game.getString("common/wood"));
+  
         this.addObject(this.toy3);
         this.rot = 1;
+        
+         var object4 = new Image();
+        object4.src = "img/Cap.png";
+         var cap = new Object(485, 290,100, 130);
+        cap.setBackground(object4);
+        
+        cap.addProperty(this.game.getString("common/name"), this.game.getString("common/cap"));
+        cap.addProperty(this.game.getString("common/color"), this.game.getString("common/red"));
+        cap.addProperty(this.game.getString("common/material"), this.game.getString("common/fabric"));
+        this.addObject(cap); 
+        
+          var object5 = new Image();
+        object5.src = "img/Baseball.svg";
+         var ball = new Object(870, 470,50, 70);
+        ball.setBackground(object5);
+        
+        ball.addProperty(this.game.getString("common/name"), this.game.getString("common/baseball"));
+        ball.addProperty(this.game.getString("common/color"), this.game.getString("common/white"));
+        ball.addProperty(this.game.getString("common/material"), this.game.getString("common/fabric"));
+  
+        this.addObject(ball); 
 
-        var game = this.game;
-        this.game.taskWindow.reset(function() {
-            game.setScreen(new ScenarioTwoScreen(game));
+        /* Task window */
+        var game = this.game;                            // Inside of the function below, "this" refers to something else that the instance of the class
+        this.game.taskWindow.reset(function() {          // Pass in the function that is to be executed when the continue button is clicked
+            game.setScreen(new ScenarioTwoScreen(game)); // Set the screen to the next scenario
         });
-        this.game.taskWindow.addTask(this.game.getString("scenario1/task1"), "/assets/audio/tmp1.wav");
-        this.game.taskWindow.addTask(this.game.getString("scenario1/task2"), "/assets/audio/tmp2.wav");
-        this.game.taskWindow.addTask(this.game.getString("scenario1/task3"), "/assets/audio/tmp3.wav");
-        this.game.taskWindow.addTask(this.game.getString("scenario1/task4"), "/assets/audio/tmp1.wav");
-        this.game.taskWindow.addTask(this.game.getString("scenario1/task5"), "/assets/audio/tmp2.wav");
+        this.game.taskWindow.addTask(this.game.getString("scenario1/task1"), "/assets/audio/" + this.game.chosenLanguage + "/S1T1.m4a");
+        this.game.taskWindow.addTask(this.game.getString("scenario1/task2"), "/assets/audio/" + this.game.chosenLanguage + "/S1T2.m4a");
+        this.game.taskWindow.addTask(this.game.getString("scenario1/task3"), "/assets/audio/" + this.game.chosenLanguage + "/S1T3.m4a");
+        this.game.taskWindow.addTask(this.game.getString("scenario1/task4"), "/assets/audio/" + this.game.chosenLanguage + "/S1T4.m4a");
+        this.game.taskWindow.addTask(this.game.getString("scenario1/task5"), "/assets/audio/" + this.game.chosenLanguage + "/S1T5.m4a");
     
         /* Sets the initial position for the arrow, and pushes it to the objects on the screen. */
-        /* Having it in the end, makes sure that it is drawn over all other items. */
-        this.game.arrow.setX(500);
+        /* Having it in the end, makes sure that it is drawn above all other items. */
+        this.game.arrow.setX(700);
         this.game.arrow.setY(25);
         this.objects.push(this.game.arrow);
         this.arrowVisible = true;
         
         this.propertyChooser = new PropertyChooser();
         this.propertyNumber = 3; // Hair color
+        
+        this.hideProperties();
+        this.game.getTouchEvents(); // Clear the buffer
     }
     
     update(deltaTime) {
+        
+        /* Main logic of the scenario. It consists of a set of states and class variables. Helper methods exists below the update method. */
         switch(this.state) {
             case this.states.POINTINGONTASK:                     // This case is used when the arrow is pointing towards the taskbar(on any task) 
                 this.animateArrow(false);                        // Animiate the arrow. False stands for not adjusting it to the same place, i.e. it moves when it gets bigger.
@@ -90,6 +158,7 @@ class ScenarioOneScreen extends GameScreen {
                 break;
             case this.states.PLAYINGTASK:                        // The audio is playing on one of the tasks
                 if(this.game.taskWindow.isPlaying) {             // As long as the audio is playing
+                    this.kimSpeaking = true;
                     this.hideProperties();                       // Hide the properties window when task2 is clicked
                     this.animateHideArrow();                     // Animation for hiding the arrow(this gets called for every update call)
                     this.arrowVisible = false;                   // The arrow is no hidden(this flag is used to determine if the arrow's properties needs to be restored)
@@ -100,6 +169,7 @@ class ScenarioOneScreen extends GameScreen {
                         this.state = this.states.POINTINGATTOYS; // Point on the toys case
                     if(this.game.arrow.getY() >= 350)            // If the arrow is pointing on task2(Properties)
                         this.state = this.states.POINTINGATKIM;  // Point on the toys case
+                    this.kimSpeaking = false;
                 }
                 break;
             case this.states.POINTINGATKIM:
@@ -117,7 +187,7 @@ class ScenarioOneScreen extends GameScreen {
                     if(!this.game.taskWindow.isTaskDone(1)) { // If task1 is the current task
                         this.game.taskWindow.completeTask();
                         this.state = this.states.POINTINGONTASK;
-                        this.game.arrow.setX(500);
+                        this.game.arrow.setX(700);
                         this.game.arrow.setY(200);
                         this.game.arrow.setRotation(0);
                     } else {
@@ -151,7 +221,7 @@ class ScenarioOneScreen extends GameScreen {
                 if(this.checkPropertiesClicked() && !this.character.isPropertiesWindowVisible()) {
                     this.game.taskWindow.completeTask();
                     this.state = this.states.POINTINGONTASK;
-                    this.game.arrow.setX(500);
+                    this.game.arrow.setX(700);
                     this.game.arrow.setY(350);
                     this.game.arrow.setRotation(0);
                 }
@@ -177,12 +247,12 @@ class ScenarioOneScreen extends GameScreen {
 
                     if(this.propertyNumber == 3) {
                         this.character.setHair(this.character.getChoices(this.propertyNumber)[index]);
-                        this.game.arrow.setX(500);
+                        this.game.arrow.setX(700);
                         this.game.arrow.setY(500);
                     }
                     else if(this.propertyNumber == 4) {
                         this.character.setShirt(this.character.getChoices(this.propertyNumber)[index]);
-                        this.game.arrow.setX(500);
+                        this.game.arrow.setX(700);
                         this.game.arrow.setY(600);
                     }
                     else if(this.propertyNumber == 5) {
@@ -199,11 +269,12 @@ class ScenarioOneScreen extends GameScreen {
             case this.states.SCENARIODONE:
                 if(this.game.arrow.getX() == 0) {
                     this.resetArrow();
-                    this.game.arrow.setX(500);
-                    this.game.arrow.setY(600);
+                    this.game.arrow.setRotation(-90);
+                    this.game.arrow.setX(400);
+                    this.game.arrow.setY(540);
                 }
                 
-                this.animateArrow(false);
+                this.animateArrow(true);
                 break;
             default:
                 break;
@@ -217,9 +288,10 @@ class ScenarioOneScreen extends GameScreen {
     display() {
         super.display();
         
-        var bubble = this.character.speechBubble;
-        if(bubble.isVisible()){
-            this.graphics.drawSpeechBubble(bubble.x, bubble.y, bubble.width, bubble.height, "#FFF", bubble.getText());
+        var bubble = this.game.mainCharacter.speechBubble;
+
+        if(this.kimSpeaking){
+            this.graphics.drawSpeechBubble(bubble.x, bubble.y, bubble.width, bubble.height, "#FFF", "...");
         }
     }
     
@@ -268,7 +340,7 @@ class ScenarioOneScreen extends GameScreen {
         this.toy3.setRotation(rot + this.rot);
     }
     
-    checkPropertiesClicked() {
+    checkPropertiesClicked(index) {
         for(var i = 0; i < this.objects.length; i++) {
             if(this.objects[i].isPropertiesWindowVisible()) {
                 return true;
@@ -279,6 +351,7 @@ class ScenarioOneScreen extends GameScreen {
     }
     
     hideProperties() {
+        console.log("yup");
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].hideProperties();
         }

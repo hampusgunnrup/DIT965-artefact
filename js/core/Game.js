@@ -6,8 +6,8 @@ class Game {
         /* The size is based on one of the computers used to test the game */
         this.width = 1000;
         this.height = 700;
-        this.scaleX = window.innerWidth / 1000;
-        this.scaleY = window.innerHeight / 700;
+        this.scaleX = canvas.width / this.width;//window.innerWidth / this.width;
+        this.scaleY = canvas.height / this.height;//window.innerHeight / this.height;
         this.graphics = new Graphics(canvas, this.width, this.height);
         this.graphics.setScale(this.scaleX, this.scaleY);
         
@@ -32,7 +32,9 @@ class Game {
     }
     
     getTouchEvents() {
-        return this.input.getTouchEvents();
+        var touchEvents;
+        touchEvents = this.input.getTouchEvents();
+        return touchEvents;
     }
     
     isTouchDown() {
@@ -43,5 +45,9 @@ class Game {
     /* Setters */
     setScreen(screen) {
         this.screen = screen;
+    }
+    
+    setTouchEvents(touchEvents) {
+        this.touchEvents = touchEvents;
     }
 }

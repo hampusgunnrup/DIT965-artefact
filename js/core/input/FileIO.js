@@ -63,4 +63,8 @@ class FileIO {
         
         return finalString; //this.file.xml.getElementsByTagName("strings")[0].getElementsByTagName(string)[0].childNodes[0].nodeValue; 
     }
+    
+    isReady() {
+        return this.xhttp.readyState == 4 && this.xhttp.status == 200 && this.xml != null && this.xml != undefined;
+    }
 }

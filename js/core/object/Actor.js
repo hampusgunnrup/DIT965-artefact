@@ -43,5 +43,6 @@ class Actor extends Object {
      * param sentence: what the actor should say. This must be a string.
     */
     speak(sentence) {
+        console.log(sentence);
     }
 }

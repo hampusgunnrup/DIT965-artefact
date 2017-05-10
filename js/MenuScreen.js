@@ -3,37 +3,33 @@
 class MenuScreen extends Screen {
     constructor(game) {
         super(game);
-        this.background = "#000";
         
-        this.scenarioOneButton = new Button(0, 0, 100, 50, "Scenario 1", function(button) {
-            game.setScreen(new ScenarioOneScreen(game));  
-        });
-        
-        this.scenarioTwoButton = new Button(150, 0, 100, 50, "Scenario 2", function(button) {
-            game.setScreen(new ScenarioTwoScreen(game));
-        });
-        
-         this.scenarioThreeButton = new Button(300, 0, 100, 50, "Scenario 3", function(button) {
-            game.setScreen(new ScenarioThreeScreen(game));
-        });
-        
-        this.addObject(this.scenarioOneButton);
-        this.addObject(this.scenarioTwoButton);
-        this.addObject(this.scenarioThreeButton);
+        this.buttonIsShown = false;
+        this.graphics.setBlur("#000");
+        this.background.src = "img/houseKim.png";
+        this.game.taskWindow.reset(function() {});
     }
     
     update(deltaTime) {
         super.update(deltaTime);
+        this.game.taskWindow.setEmptyText(this.game.getString("taskWindow/noTasks"));
     }
     
     display() {
         super.display();
-        this.drawButton(this.scenarioOneButton);
-        this.drawButton(this.scenarioTwoButton);
-        this.drawButton(this.scenarioThreeButton);
-    }
-    
-    drawButton(button) {
-        this.graphics.drawParagraph(button.getX(), button.getY()+20, button.getText());
+        if(this.game.fileIsReady() && !this.buttonIsShown) {
+            var button = document.createElement("div");
+            button.className = "continueButton";
+            button.innerHTML = this.game.file.getString("common/begin");
+            document.body.appendChild(button);
+
+            var game = this.game;
+            button.onmousedown = function() {
+                game.setScreen(new ScenarioOneScreen(game));
+                this.remove();
+            };
+            
+            this.buttonIsShown = true;
+        }
     }
 }

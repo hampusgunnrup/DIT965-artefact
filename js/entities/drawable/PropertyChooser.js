@@ -38,7 +38,7 @@ class PropertyChooser {
             div.onmousedown = function() {
                 var i = 0;
                 var child = this;
-                while( (child = child.previousSibling) != null ) 
+                while((child = child.previousSibling) != null) 
                     i++;
                 propertyChooser.choice = i + 1;
                 propertyChooser.hide();

@@ -5,8 +5,8 @@ window.onload = function() {                                   // When all of th
    
     var htmlCanvas = document.getElementById("platform");      // Get the canvas(area to draw on)
     
-    htmlCanvas.width = window.innerWidth - taskWrapper.offsetWidth;
-    htmlCanvas.height = window.innerHeight;
+    htmlCanvas.width = 900;//window.innerWidth - taskWrapper.offsetWidth;
+    htmlCanvas.height = 600;//window.innerHeight;
     
     var canvas = new Canvas(htmlCanvas);                       // Create a new instance for handling the canvas            
     

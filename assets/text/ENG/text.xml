@@ -1,0 +1,105 @@
+<strings>
+    <scenario1>
+        <task1>Introduction</task1>
+        <task2>Description</task2>
+        <task3>Hair color</task3>
+        <task4>T-shirt</task4>
+        <task5>Mood</task5>
+        <text1>Wow! You finished your first task! Go ahead and click on the next one.</text1>
+        <hair>Hair</hair>
+        <tshirt>T-shirt</tshirt>
+        <mood>Mood</mood>
+    </scenario1>
+    <scenario2>
+        <task1> My family </task1>
+        <task2> Umbrella </task2>
+        <task3> To the zoo! </task3>
+        <text1>This is my family! My mother, father, sister and our little dog, Maxy.</text1>
+        <humanClass>Human</humanClass>
+        <umbrella>Umbrella</umbrella>
+        <kimUmbrella>Small</kimUmbrella>
+        <othersUmbrella>Big</othersUmbrella>
+    </scenario2>
+    <scenario3>
+        <task1> Animals </task1>
+        <task2> Actions </task2>
+        <text1>Lets go inside the Zoo now.</text1>
+    </scenario3>
+    <taskWindow>
+        <finishTask>Please finish the current task.</finishTask>
+        <noTasks>No tasks available</noTasks>
+        <continue>Continue</continue>
+    </taskWindow>
+    <common>
+        <begin>Start!</begin>
+        <name>Name</name>
+        <age>Age</age>
+        <color>Color</color>
+        <material>Material</material>
+        <toyCar>Car Toy</toyCar>
+        <green> Green </green>
+        <plastic>Plastic </plastic>
+        <orange>Orange </orange>
+        <fabric>Fabric </fabric>
+        <teddyBear>Teddy-bear</teddyBear>
+        <wood>Wood</wood>
+        <brown>   Brown</brown>
+        <horsie>Horse toy</horsie>
+        <hairColor>Hair color</hairColor>
+        <mood>Mood</mood>
+        <job>Job</job>
+        <grandpa>Grandpa</grandpa>
+        <grandpaAge>65</grandpaAge>
+        <white>   White</white>
+        <surprised>Surprised</surprised>
+        <teacher>Teacher</teacher>
+        <dad>Dad</dad>
+        <dadAge>45</dadAge>
+        <sleepy>Sleepy</sleepy>
+        <police>Police</police>
+        <mom>Mom</mom>
+        <umbrella>Umbrella</umbrella>
+        <momAge>41</momAge>
+        <red>   Red</red>
+        <happy>Happy</happy>
+        <chef>Chef</chef>
+        <leather>Leather</leather>
+        <confused>Confused</confused>
+        <swim>Swim()</swim>
+        <skin>Skin</skin>
+        <crocodile>Crocodile</crocodile>
+        <bracket>()</bracket>
+        <empty> </empty>
+        <eatMeat>Eat-Meat()</eatMeat>
+        <dots>:-:-:-:-:</dots>
+        <crawl>Crawl()</crawl>
+        <swing>Swing-from-trees()</swing>
+        <eatBanana>Eat-banana()</eatBanana>
+        <shy>Shy</shy>
+        <fur>Fur</fur>
+        <monkey>Monkey</monkey>
+        <parrot>Parrot</parrot>
+        <GR>Green &amp; Red<</GR>
+        <feather>Feather</feather>
+        <scared>Scared</scared>
+        <fly>Fly()</fly>
+        <sing>Sing()</sing>
+        <tiger>Tiger</tiger>
+        <hungry>Hungry</hungry>
+        <run>Run()</run>
+        <wolf>Wolf</wolf>
+        <gray>Gray</gray>
+        <bored>Bored</bored>
+        <yowl>Yowl()</yowl>
+        <owl>Owl</owl>
+        <shocked>Shocked</shocked>
+        <hoo>Hoo-Hoo-ing()</hoo>
+        <brownAnimal>Brown</brownAnimal>
+        <properties>Description</properties>
+        <cap>Cap</cap>
+        <baseball>Baseball</baseball>
+        <yes>    Yes</yes>
+       <no>    No</no>
+       <isHungry>Is Hungry</isHungry>
+    </common>
+</strings>
