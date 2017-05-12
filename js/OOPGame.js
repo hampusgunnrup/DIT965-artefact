@@ -13,7 +13,7 @@ class OOPGame extends Game {
         this.chosenLanguage = "SWE";
         
         /* Initialize a file with the textstrings for this game */
-        this.file = new FileIO("/assets/text/" + this.chosenLanguage + "/text.xml");
+        this.file = new FileIO("../assets/text/" + this.chosenLanguage + "/text.xml");
         this.file.open();
         
         this.taskWindow.setFile(this.file);

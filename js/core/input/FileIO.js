@@ -47,15 +47,15 @@ class FileIO {
         
         if(this.xhttp.readyState == 4 && this.xhttp.status == 200 && this.xml != null && this.xml != undefined) {
             try {
-                var array = string.split("/");
+                var array = string.split("/");                                               // Each tag gets put as an element in the array
                 var currentTag = this.xml.getElementsByTagName(array[0])[0];                 // Get the outermost tag
                 
-                for(var i = 1; i < array.length; i++) {                                            // For every string name
-                    currentTag = currentTag.getElementsByTagName(array[i])[0];
+                for(var i = 1; i < array.length; i++) {                                     // For every string name
+                    currentTag = currentTag.getElementsByTagName(array[i])[0];              // Get the "next tag". On the last iteration, the final tag is retrieved and the nodeValue will be the desired value
                 }
                 
-                finalString = currentTag.childNodes[0].nodeValue;
-            } catch(e) {  
+                finalString = currentTag.childNodes[0].nodeValue;                           // Get the actual value
+            } catch(e) {                                                                    // If the passed in string is not "valid". As in, the path is not found.
                 console.log("FileIO.js getString(string) string not found at: " + string);
                 return ""; 
             }
