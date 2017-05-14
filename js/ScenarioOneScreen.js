@@ -351,7 +351,6 @@ class ScenarioOneScreen extends GameScreen {
     }
     
     hideProperties() {
-        console.log("yup");
         for(var i = 0; i < this.objects.length; i++) {
             this.objects[i].hideProperties();
         }
