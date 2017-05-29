@@ -10,7 +10,7 @@ class OOPGame extends Game {
         
         this.taskWindow = taskWindow;
         
-        this.chosenLanguage = "SWE";
+        this.chosenLanguage = "ENG";
         
         /* Initialize a file with the textstrings for this game */
         this.file = new FileIO("../assets/text/" + this.chosenLanguage + "/text.xml");

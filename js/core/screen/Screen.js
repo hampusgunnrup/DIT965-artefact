@@ -77,7 +77,7 @@ class Screen {
         this.objects.push(object);
     }
     
-        /*
+    /*
      * Removes the passed in object from the objects contained in this screen.
      * param object: must be of type Object or an integer number(index).
     */

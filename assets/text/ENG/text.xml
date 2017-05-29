@@ -5,7 +5,6 @@
         <task3>Hair color</task3>
         <task4>T-shirt</task4>
         <task5>Mood</task5>
-        <text1>Wow! You finished your first task! Go ahead and click on the next one.</text1>
         <hair>Hair</hair>
         <tshirt>T-shirt</tshirt>
         <mood>Mood</mood>
@@ -14,7 +13,6 @@
         <task1> My family </task1>
         <task2> Umbrella </task2>
         <task3> To the zoo! </task3>
-        <text1>This is my family! My mother, father, sister and our little dog, Maxy.</text1>
         <humanClass>Human</humanClass>
         <umbrella>Umbrella</umbrella>
         <kimUmbrella>Small</kimUmbrella>
@@ -23,7 +21,6 @@
     <scenario3>
         <task1> Animals </task1>
         <task2> Actions </task2>
-        <text1>Lets go inside the Zoo now.</text1>
     </scenario3>
     <taskWindow>
         <finishTask>Please finish the current task.</finishTask>
@@ -79,7 +76,7 @@
         <fur>Fur</fur>
         <monkey>Monkey</monkey>
         <parrot>Parrot</parrot>
-        <GR>Green &amp; Red<</GR>
+        <GR>Green &amp; Red</GR>
         <feather>Feather</feather>
         <scared>Scared</scared>
         <fly>Fly()</fly>

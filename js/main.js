@@ -33,7 +33,6 @@ window.onload = function() {                                   // When all of th
     		
     		    centerButton(htmlCanvas);
     		    positionPropertyChooser(htmlCanvas);
-    		    console.log(window.innerHeight + ":" + window.innerWidth);
 		    } else {
 		        document.getElementById("smallScreenWindow").style.display = "inline";
 		    }

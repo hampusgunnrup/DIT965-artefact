@@ -73,7 +73,7 @@ class ScenarioTwoScreen extends GameScreen {
             game.setScreen(new ScenarioThreeScreen(game)); 
         });
         this.game.taskWindow.addTask(this.game.getString("scenario2/task1"), "/assets/audio/" + this.game.chosenLanguage + "/S2T1.m4a");
-        this.game.taskWindow.addTask(this.game.getString("scenario2/task2"), "/assets/audio/" + this.game.chosenLanguage + "/S2T2.mp3");
+        this.game.taskWindow.addTask(this.game.getString("scenario2/task2"), "/assets/audio/" + this.game.chosenLanguage + "/S2T2.m4a");
         this.game.taskWindow.addTask(this.game.getString("scenario2/task3"), "/assets/audio/" + this.game.chosenLanguage + "/S2T3.m4a");
       
         for(var i = 0; i < this.objects.length; i++) { // For every object on the screen

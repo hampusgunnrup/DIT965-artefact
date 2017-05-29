@@ -213,7 +213,7 @@ class Object {
     }
     
     changeProperty(property, value) {
-        this.properties[process] = value;
+        this.properties[property] = value;
     }
     
     hideProperties() {
